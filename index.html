@@ -215,15 +215,8 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
   .chip.c3 { display: none; }
 }
 
-/* Běžící pás */
-.ticker { background: var(--mocha); color: var(--cream); overflow: hidden; margin-inline: var(--inset); border-radius: 999px; }
-.ticker-track { display: flex; width: max-content; animation: slide 36s linear infinite; }
-.ticker-track span { font: 700 clamp(1.2rem, 2.4vw, 1.9rem)/1.2 var(--display); text-transform: uppercase; letter-spacing: 0.01em; padding: 18px 0; display: flex; align-items: center; white-space: nowrap; }
-.ticker-track span::after { content: ""; width: 0.36em; height: 0.36em; border-radius: 50%; background: var(--blush); margin-inline: 0.9em; }
-@keyframes slide { to { transform: translateX(-50%); } }
-
 /* Služby – latte panel */
-.services { margin-top: clamp(40px, 6vw, 80px); background: var(--latte); }
+.services { background: var(--latte); }
 .services .wrap { padding-block: var(--sec); display: grid; gap: 56px; }
 .cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 .card { aspect-ratio: 9 / 16; border-radius: 22px; padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; transition: transform .25s ease; }
@@ -462,12 +455,6 @@ footer :focus-visible { outline-color: var(--blush); }
     </div>
   </section>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Reels</span><span>TikTok</span><span>Příspěvky</span><span>Stories</span><span>Grafika</span><span>Weby</span><span>Kampaně</span>
-      <span>Reels</span><span>TikTok</span><span>Příspěvky</span><span>Stories</span><span>Grafika</span><span>Weby</span><span>Kampaně</span>
-    </div>
-  </div>
 
   <section class="services panel" id="sluzby">
     <div class="wrap">
