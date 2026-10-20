@@ -116,7 +116,11 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .screen { position: relative; width: 100%; height: 100%; border-radius: 30px; overflow: hidden; background:
   radial-gradient(120% 60% at 80% 10%, color-mix(in srgb, var(--blush) 55%, transparent), transparent 60%),
   radial-gradient(90% 50% at 10% 90%, color-mix(in srgb, var(--blush) 25%, transparent), transparent 70%),
-  var(--brown); display: grid; grid-template-rows: auto auto 1fr auto; padding: 14px 14px 18px; gap: 10px; }
+  var(--brown); display: grid; grid-template-rows: auto auto 1fr auto auto; padding: 14px 14px 14px; gap: 10px; }
+.reel-cta { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 11px 14px; border-radius: 12px; background: var(--blush); color: var(--noir); font: 600 0.88rem/1 var(--display); text-decoration: none; transition: transform .2s ease, background-color .2s ease; }
+.reel-cta:hover { transform: translateY(-2px); background: var(--cream); }
+.reel-cta .arr { transition: transform .2s ease; }
+.reel-cta:hover .arr { transform: translateX(3px); }
 .bars { display: flex; gap: 4px; }
 .bars i { flex: 1; height: 3px; border-radius: 3px; background: color-mix(in srgb, var(--cream) 30%, transparent); overflow: hidden; position: relative; }
 .bars i::after { content: ""; position: absolute; inset: 0; background: var(--cream); transform-origin: left; transform: scaleX(0); }
@@ -160,7 +164,7 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 /* Služby */
 section { scroll-margin-top: 80px; }
 .services { position: relative; background:
-  radial-gradient(45% 40% at 100% 85%, color-mix(in srgb, var(--brown) 70%, transparent), transparent 70%),
+  radial-gradient(45% 35% at 100% 55%, color-mix(in srgb, var(--brown) 70%, transparent), transparent 70%),
   radial-gradient(35% 30% at 0% 30%, color-mix(in srgb, var(--blush) 10%, transparent), transparent 70%); }
 .services .wrap { padding-block: var(--sec); display: grid; gap: 56px; }
 .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; color: var(--cream-dim); }
@@ -193,6 +197,47 @@ section { scroll-margin-top: 80px; }
   .card.hot { grid-column: 1 / -1; }
 }
 @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
+
+/* Portfolio */
+.portfolio .wrap { padding-block: 0 calc(var(--sec) + 20px); display: grid; gap: 56px; }
+.works { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.work { position: relative; margin: 0; min-width: 0; border-radius: 22px; overflow: hidden; isolation: isolate; color: var(--cream); background: var(--brown); display: flex; flex-direction: column; justify-content: space-between; padding: 18px; box-shadow: inset 0 1px 0 color-mix(in srgb, var(--cream) 14%, transparent); }
+.work.reel { aspect-ratio: 9 / 16; }
+.work.wide { grid-column: span 2; min-height: 100%; }
+.work.post { aspect-ratio: 4 / 5; }
+.work > img, .work > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+.work.shot > img { object-position: top left; }
+.work::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, color-mix(in srgb, var(--noir) 80%, transparent), transparent 45%); }
+.work .tag { align-self: flex-start; font: 600 0.72rem/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; padding: 0.55em 0.75em; border-radius: 999px; background: color-mix(in srgb, var(--noir) 55%, transparent); backdrop-filter: blur(6px); }
+.work figcaption { display: grid; gap: 4px; }
+.work figcaption b { font: 700 1.25rem/1.2 var(--display); letter-spacing: -0.015em; }
+.work figcaption span { font-size: 0.88rem; line-height: 1.45; color: var(--on-brown-dim); }
+.work .play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--cream) 22%, transparent); backdrop-filter: blur(6px); border: 1.5px solid color-mix(in srgb, var(--cream) 45%, transparent); }
+.work .play::before { content: ""; margin-left: 5px; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent var(--cream); }
+.work .big { position: absolute; inset: 0; z-index: -1; display: grid; place-items: center; text-align: center; padding: 14% 12% 36%; font: 700 clamp(1.4rem, 2.2vw, 1.9rem)/1.1 var(--display); letter-spacing: -0.03em; }
+.g1 { background: radial-gradient(90% 60% at 80% 15%, color-mix(in srgb, var(--blush) 60%, transparent), transparent 65%), var(--brown); }
+.g2 { background: radial-gradient(80% 60% at 20% 80%, color-mix(in srgb, var(--blush) 45%, transparent), transparent 65%), var(--brown-deep); }
+.g3 { background: linear-gradient(160deg, var(--blush), color-mix(in srgb, var(--blush) 60%, var(--brown))); }
+.g4 { background: radial-gradient(90% 60% at 50% 30%, color-mix(in srgb, var(--cream) 30%, transparent), transparent 65%), var(--brown); }
+.work.light { color: var(--noir); background: var(--cream); }
+.work.light::after, .work.g3::after { background: none; }
+.work.light figcaption span, .work.g3 figcaption span { color: color-mix(in srgb, var(--noir) 70%, var(--cream)); }
+.work.light .tag, .work.g3 .tag { background: color-mix(in srgb, var(--noir) 10%, transparent); }
+.work.g3 { color: var(--noir); }
+.work.light .big .blush, .work.g3 .big .blush { color: var(--brown); }
+.work.shot::after { background: linear-gradient(to top, var(--noir) 8%, color-mix(in srgb, var(--noir) 60%, transparent) 30%, transparent 55%); }
+.portfolio-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; padding-top: 28px; border-top: 1px solid var(--cream-line); }
+.portfolio-foot p { color: var(--cream-dim); max-width: 34em; }
+@media (max-width: 900px) {
+  .works { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .work.wide { grid-column: 1 / -1; aspect-ratio: 16 / 10; min-height: 0; }
+  .work { padding: 14px; border-radius: 18px; }
+  .work figcaption b { font-size: 1.05rem; }
+  .work figcaption span { font-size: 0.8rem; }
+  .work .play { width: 52px; height: 52px; margin: -26px 0 0 -26px; }
+  .work .big { font-size: 1.15rem; padding: 20% 10% 44%; }
+}
+@media (max-width: 480px) { .work.post figcaption span { display: none; } .work .big { padding-bottom: 30%; } }
 
 /* Postup – cream pás */
 .process { position: relative; border-radius: var(--r) var(--r) 0 0; color: var(--noir); background:
@@ -320,6 +365,7 @@ footer .links a:hover { color: var(--cream); }
     <a class="logo" href="#top" aria-label="solv, Solv Media">sol<svg aria-hidden="true"><use href="#tick"/></svg></a>
     <nav aria-label="Hlavní" id="nav">
       <a href="#sluzby">Služby</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#postup">Postup</a>
       <a href="#tym">Tým</a>
       <a href="#kontakt">Kontakt</a>
@@ -345,12 +391,12 @@ footer .links a:hover { color: var(--cream); }
         </div>
       </div>
 
-      <div class="phone" role="img" aria-label="Ukázka reelu: titulky postupně ukazují text Tohle video natočíme a sestříháme za vás">
+      <div class="phone">
         <div class="screen">
-          <div class="bars" id="bars"><i class="on"></i><i class="run"></i><i></i><i></i></div>
-          <div class="acct"><span class="av"><span class="logo">sol<svg aria-hidden="true"><use href="#tick"/></svg></span></span><span>solvmedia <small>· Reels</small></span></div>
-          <div class="caption" id="caption"><span>Tohle</span> <span>video</span> <span>natočíme</span> <span>a</span> <span>sestříháme</span> <span>za</span> <span class="lit">vás.</span></div>
-          <div class="reel-foot">
+          <div class="bars" id="bars" aria-hidden="true"><i class="on"></i><i class="run"></i><i></i><i></i></div>
+          <div class="acct" aria-hidden="true"><span class="av"><span class="logo">sol<svg aria-hidden="true"><use href="#tick"/></svg></span></span><span>solvmedia <small>· Reels</small></span></div>
+          <div class="caption" id="caption" aria-hidden="true"><span>Tohle</span> <span>video</span> <span>natočíme</span> <span>a</span> <span>sestříháme</span> <span>za</span> <span class="lit">vás.</span></div>
+          <div class="reel-foot" aria-hidden="true">
             <p><b>@solvmedia</b>Námět, natáčení, střih a titulky.</p>
             <div class="icons" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="liked"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
@@ -358,6 +404,7 @@ footer .links a:hover { color: var(--cream); }
               <svg viewBox="0 0 24 24"><path d="M21 4L3 11l7 2 2 7z"/></svg>
             </div>
           </div>
+          <a class="reel-cta" href="#portfolio">Zobrazit portfolio <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -412,6 +459,28 @@ footer .links a:hover { color: var(--cream); }
           <p>Reklama s jasným rozpočtem a cílem. Každý měsíc krátký report, kterému porozumíte.</p>
           <ul><li>cílení a rozpočet</li><li>kreativa do reklam</li><li>měsíční report</li></ul>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="label eyebrow">Portfolio</span><h2>Ukázky <span class="blush">naší práce</span></h2></div>
+        <p>Videa, příspěvky, grafika i weby. Další projekty vám rádi ukážeme na schůzce.</p>
+      </div>
+      <div class="works">
+        <figure class="work reel g1"><span class="tag">Reel</span><span class="play" aria-hidden="true"></span><figcaption><b>Představení firmy</b><span>Natáčení, střih a titulky</span></figcaption></figure>
+        <figure class="work reel g2"><span class="tag">Reel</span><span class="play" aria-hidden="true"></span><figcaption><b>Zákulisí</b><span>Den v práci za 30 sekund</span></figcaption></figure>
+        <figure class="work reel g3"><span class="tag">TikTok</span><span class="play" aria-hidden="true"></span><figcaption><b>Produkt v akci</b><span>Krátké video pro sítě</span></figcaption></figure>
+        <figure class="work reel g4"><span class="tag">Stories</span><span class="play" aria-hidden="true"></span><figcaption><b>Tipy a návody</b><span>Série stories na týden</span></figcaption></figure>
+        <figure class="work wide shot"><img src="img/portfolio-web.jpg" alt="Úvodní stránka webu solvmedia.cz" width="1280" height="800" loading="lazy"><span class="tag">Web</span><figcaption><b>solvmedia.cz</b><span>Web na míru s poptávkovým formulářem</span></figcaption></figure>
+        <figure class="work post light"><span class="tag">Příspěvek</span><div class="big" aria-hidden="true"><span>5 věcí, které <span class="blush">zaujmou</span></span></div><figcaption><b>Karusel</b><span>Grafika a texty</span></figcaption></figure>
+        <figure class="work post g1"><span class="tag">Meta Ads</span><div class="big" aria-hidden="true"><span>Reklama, která <span class="blush">prodává</span></span></div><figcaption><b>Grafika do reklamy</b><span>Kreativa pro Facebook a Instagram</span></figcaption></figure>
+      </div>
+      <div class="portfolio-foot">
+        <p>Chcete podobný obsah pro svou firmu? Napište nám, co potřebujete.</p>
+        <a class="pill" href="#kontakt">Chci poptávku <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
