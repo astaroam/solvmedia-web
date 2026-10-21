@@ -260,6 +260,16 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .work figcaption span { font-size: 0.88rem; line-height: 1.45; opacity: 0.8; }
 .work .play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--cream) 24%, transparent); backdrop-filter: blur(6px); border: 1.5px solid color-mix(in srgb, var(--cream) 50%, transparent); }
 .work .play::before { content: ""; margin-left: 5px; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent var(--cream); }
+.work.vid { background: var(--espresso); padding: 0; }
+.work.vid > video { z-index: 0; }
+.work.vid .tag { position: absolute; top: 14px; left: 14px; z-index: 2; }
+.work.vid figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 18px; pointer-events: none; }
+.work.vid::after { background: linear-gradient(to top, var(--ink) 4%, color-mix(in srgb, var(--ink) 70%, transparent) 26%, transparent 50%); z-index: 1; pointer-events: none; transition: opacity .3s; }
+.work.vid .play { z-index: 2; cursor: pointer; padding: 0; transition: transform .2s, opacity .3s; }
+.work.vid .play:hover { transform: scale(1.08); }
+.work.vid .play:focus-visible { outline: 3px solid var(--blush); outline-offset: 3px; }
+.work.vid.on .tag, .work.vid.on .play, .work.vid.on figcaption, .work.vid.on::after { opacity: 0; visibility: hidden; }
+.work.vid.on > video { z-index: 3; }
 .work .big { position: absolute; inset: 0; z-index: -1; display: grid; place-items: center; text-align: center; padding: 14% 12% 36%; font: 700 clamp(1.4rem, 2.2vw, 1.9rem)/1.1 var(--display); letter-spacing: -0.03em; }
 .work.g1 { background: radial-gradient(90% 60% at 80% 15%, color-mix(in srgb, var(--blush) 55%, transparent), transparent 65%), var(--mocha); }
 .work.g2 { background: radial-gradient(80% 60% at 20% 80%, color-mix(in srgb, var(--blush) 40%, transparent), transparent 65%), var(--espresso); }
@@ -282,7 +292,7 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
   .work .play { width: 52px; height: 52px; margin: -26px 0 0 -26px; }
   .work .big { font-size: 1.15rem; padding: 20% 10% 44%; }
 }
-@media (max-width: 480px) { .work.post figcaption span { display: none; } .work .big { padding-bottom: 30%; } }
+@media (max-width: 480px) { .work.post figcaption span { display: none; } .work.vid figcaption { padding: 12px; } .work.vid figcaption span { font-size: 0.74rem; } .work.vid .tag { top: 10px; left: 10px; } .work .big { padding-bottom: 30%; } }
 
 /* Postup – mocha panel */
 .process { background:
@@ -501,13 +511,13 @@ footer :focus-visible { outline-color: var(--blush); }
     <div class="wrap">
       <div class="head">
         <div><span class="label eyebrow">Portfolio</span><h2>Ukázky <span class="accent">naší práce</span></h2></div>
-        <p>Videa, příspěvky, grafika i weby. Další projekty vám rádi ukážeme na schůzce.</p>
+        <p>Videa, která jsme natočili pro naše klienty, i příspěvky, grafika a weby. Klikněte na video a pusťte si ho se zvukem.</p>
       </div>
       <div class="works">
-        <figure class="work reel g1"><span class="tag">Reel</span><span class="play" aria-hidden="true"></span><figcaption><b>Představení firmy</b><span>Natáčení, střih a titulky</span></figcaption></figure>
-        <figure class="work reel g2"><span class="tag">Reel</span><span class="play" aria-hidden="true"></span><figcaption><b>Zákulisí</b><span>Den v práci za 30 sekund</span></figcaption></figure>
-        <figure class="work reel g3"><span class="tag">TikTok</span><span class="play" aria-hidden="true"></span><figcaption><b>Produkt v akci</b><span>Krátké video pro sítě</span></figcaption></figure>
-        <figure class="work reel g4"><span class="tag">Stories</span><span class="play" aria-hidden="true"></span><figcaption><b>Tipy a návody</b><span>Série stories na týden</span></figcaption></figure>
+        <figure class="work reel vid"><video src="video/mpl-lepidlo.mp4" poster="video/mpl-lepidlo.jpg" preload="none" playsinline aria-label="Video pro MPL Stavebniny: jak lepit dlažbu"></video><span class="tag">Návod</span><button class="play" type="button" aria-label="Přehrát video: MPL Stavebniny"></button><figcaption><b>MPL Stavebniny</b><span>Jak lepit dlažbu, rady přímo z prodejny</span></figcaption></figure>
+        <figure class="work reel vid"><video src="video/mpa-kuchyn.mp4" poster="video/mpa-kuchyn.jpg" preload="none" playsinline aria-label="Video pro MPA s.r.o.: hotová kuchyň na míru"></video><span class="tag">Realizace</span><button class="play" type="button" aria-label="Přehrát video: MPA s.r.o."></button><figcaption><b>MPA s.r.o.</b><span>Kuchyň na míru pro stavební firmu</span></figcaption></figure>
+        <figure class="work reel vid"><video src="video/mpl-montazni-sada.mp4" poster="video/mpl-montazni-sada.jpg" preload="none" playsinline aria-label="Video pro MPL Stavebniny: montážní sada hmoždinek"></video><span class="tag">Produkt</span><button class="play" type="button" aria-label="Přehrát video: Montážní sada"></button><figcaption><b>Montážní sada</b><span>Produktové video s ukázkou montáže</span></figcaption></figure>
+        <figure class="work reel vid"><video src="video/brettschneider.mp4" poster="video/brettschneider.jpg" preload="none" playsinline aria-label="Video pro realitního makléře Tomáše Brettschneidera"></video><span class="tag">Osobní značka</span><button class="play" type="button" aria-label="Přehrát video: Tomáš Brettschneider"></button><figcaption><b>Tomáš Brettschneider</b><span>Osobní značka realitního makléře</span></figcaption></figure>
         <figure class="work wide shot"><picture><source type="image/webp" srcset="img/portfolio-web-640.webp 640w, img/portfolio-web-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 620px"><img src="img/portfolio-web-1280.jpg" srcset="img/portfolio-web-640.jpg 640w, img/portfolio-web-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 620px" alt="Úvodní stránka webu solvmedia.cz" width="1280" height="800" loading="lazy" decoding="async"></picture><span class="tag">Web</span><figcaption><b>solvmedia.cz</b><span>Web na míru s poptávkovým formulářem</span></figcaption></figure>
         <figure class="work post g5"><span class="tag">Příspěvek</span><div class="big" aria-hidden="true"><span>5 věcí, které <span class="accent">zaujmou</span></span></div><figcaption><b>Karusel</b><span>Grafika a texty</span></figcaption></figure>
         <figure class="work post g4"><span class="tag">Meta Ads</span><div class="big" aria-hidden="true"><span>Reklama, která <span class="accent">prodává</span></span></div><figcaption><b>Grafika do reklamy</b><span>Kreativa pro Facebook a Instagram</span></figcaption></figure>
@@ -688,6 +698,20 @@ footer :focus-visible { outline-color: var(--blush); }
       })
       .catch(function () { status.textContent = 'Poptávku se nepodařilo odeslat. Zkuste to znovu, nebo napište na info@solvmedia.cz.'; })
       .then(function () { submit.disabled = false; });
+  });
+})();
+
+// Portfolio videa: klik pustí video se zvukem, ostatní se zastaví
+(function () {
+  var figs = document.querySelectorAll('.work.vid');
+  function stop(fig) { var v = fig.querySelector('video'); v.pause(); v.controls = false; fig.classList.remove('on'); }
+  figs.forEach(function (fig) {
+    var v = fig.querySelector('video');
+    fig.querySelector('.play').addEventListener('click', function () {
+      figs.forEach(function (o) { if (o !== fig) stop(o); });
+      v.muted = false; v.controls = true; fig.classList.add('on'); v.play();
+    });
+    v.addEventListener('ended', function () { stop(fig); });
   });
 })();
 </script>
