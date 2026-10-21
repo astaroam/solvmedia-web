@@ -251,7 +251,8 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .work.wide { grid-column: span 2; min-height: 100%; }
 .work.post { aspect-ratio: 4 / 5; }
 .work > img, .work > video, .work > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.work.shot img { object-position: top left; }
+.work.shot img { object-position: top center; }
+.work.shot { justify-content: flex-end; }
 .work::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, color-mix(in srgb, var(--ink) 75%, transparent), transparent 45%); }
 .work.shot::after { background: linear-gradient(to top, var(--ink) 8%, color-mix(in srgb, var(--ink) 60%, transparent) 30%, transparent 55%); }
 .work .tag { align-self: flex-start; font: 600 0.75rem/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; padding: 0.55em 0.75em; border-radius: 999px; background: color-mix(in srgb, var(--ink) 50%, transparent); color: var(--cream); backdrop-filter: blur(6px); }
@@ -275,7 +276,6 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .work.art > picture { display: block; aspect-ratio: 1; }
 .work.art > picture > img { position: static; display: block; z-index: auto; }
 .work.art figcaption { padding: 16px 18px 18px; }
-.work.site .big { font-size: clamp(2rem, 4.4vw, 3.6rem); padding-bottom: 18%; }
 .work figcaption a { color: inherit; text-decoration: none; pointer-events: auto; }
 .work figcaption a:hover { color: var(--blush); }
 .work .big { position: absolute; inset: 0; z-index: -1; display: grid; place-items: center; text-align: center; padding: 14% 12% 36%; font: 700 clamp(1.4rem, 2.2vw, 1.9rem)/1.1 var(--display); letter-spacing: -0.03em; }
@@ -526,7 +526,7 @@ footer :focus-visible { outline-color: var(--blush); }
         <figure class="work reel vid"><video src="video/mpa-kuchyn.mp4" poster="video/mpa-kuchyn.jpg" preload="none" playsinline aria-label="Video pro MPA stav: ukázka kuchyně na míru"></video><span class="tag">Realizace</span><button class="play" type="button" aria-label="Přehrát video: MPA stav"></button><figcaption><b>MPA stav</b><span>Ukázka kuchyně na míru</span></figcaption></figure>
         <figure class="work reel vid"><video src="video/mpl-montazni-sada.mp4" poster="video/mpl-montazni-sada.jpg" preload="none" playsinline aria-label="Video pro MPL Stavebniny: montážní sada hmoždinek"></video><span class="tag">Produkt</span><button class="play" type="button" aria-label="Přehrát video: Montážní sada"></button><figcaption><b>Montážní sada</b><span>Produktové video s ukázkou montáže</span></figcaption></figure>
         <figure class="work reel vid"><video src="video/sykorova.mp4" poster="video/sykorova.jpg" preload="none" playsinline aria-label="Video pro realitní makléřku Patricii Sýkorovou"></video><span class="tag">Osobní značka</span><button class="play" type="button" aria-label="Přehrát video: Patricie Sýkorová"></button><figcaption><b>Patricie Sýkorová</b><span>Osobní značka realitní makléřky</span></figcaption></figure>
-        <figure class="work wide g2 site"><span class="tag">Web</span><div class="big" aria-hidden="true"><span>getpostera<span class="accent">.cz</span></span></div><figcaption><b><a href="https://getpostera.cz" target="_blank" rel="noopener">getpostera.cz <span aria-hidden="true">↗</span></a></b><span>Web na míru</span></figcaption></figure>
+        <figure class="work wide shot"><picture><source type="image/webp" srcset="img/postera-640.webp 640w, img/postera-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 620px"><img src="img/postera-1280.jpg" srcset="img/postera-640.jpg 640w, img/postera-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 620px" alt="Úvodní stránka webu getpostera.cz" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b><a href="https://getpostera.cz" target="_blank" rel="noopener">getpostera.cz <span aria-hidden="true">↗</span></a></b><span>Web pro aplikaci na správu sociálních sítí</span></figcaption></figure>
         <figure class="work art"><picture><source type="image/webp" srcset="img/hq-husqvarna-pily-600.webp 600w, img/hq-husqvarna-pily-1200.webp 1200w" sizes="(max-width: 900px) 50vw, 300px"><img src="img/hq-husqvarna-pily-1200.jpg" srcset="img/hq-husqvarna-pily-600.jpg 600w, img/hq-husqvarna-pily-1200.jpg 1200w" sizes="(max-width: 900px) 50vw, 300px" alt="Příspěvek pro HQ Technik Ostrava: podzimní slevy na motorové pily Husqvarna" width="1200" height="1200" loading="lazy" decoding="async"></picture><figcaption><b>HQ Technik Ostrava</b><span>Podzimní akce na techniku Husqvarna</span></figcaption></figure>
         <figure class="work art"><picture><source type="image/webp" srcset="img/hq-automower-600.webp 600w, img/hq-automower-1200.webp 1200w" sizes="(max-width: 900px) 50vw, 300px"><img src="img/hq-automower-1200.jpg" srcset="img/hq-automower-600.jpg 600w, img/hq-automower-1200.jpg 1200w" sizes="(max-width: 900px) 50vw, 300px" alt="Příspěvek pro HQ Technik Ostrava: Husqvarna Automower s prodlouženou zárukou 3 roky" width="1200" height="1200" loading="lazy" decoding="async"></picture><figcaption><b>Husqvarna Automower</b><span>Reklamní kampaň na prodlouženou záruku</span></figcaption></figure>
       </div>
