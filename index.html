@@ -178,6 +178,11 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
   radial-gradient(120% 60% at 80% 10%, color-mix(in srgb, var(--blush) 55%, transparent), transparent 60%),
   radial-gradient(90% 50% at 10% 90%, color-mix(in srgb, var(--rose) 45%, transparent), transparent 70%),
   var(--mocha); display: grid; grid-template-rows: auto auto 1fr auto auto; padding: 14px; gap: 10px; }
+/* Na pozadí displeje běží ztlumený reel s kuchyní MPA, přechod nahoře a dole drží text čitelný */
+.screen-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; pointer-events: none; }
+.screen::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, color-mix(in srgb, var(--noir) 55%, transparent) 0%, transparent 28%, color-mix(in srgb, var(--noir) 25%, transparent) 50%, transparent 66%, color-mix(in srgb, var(--noir) 70%, transparent) 100%); }
+.screen > :not(.screen-bg) { position: relative; z-index: 1; }
+.caption span:not(.lit) { text-shadow: 0 1px 12px color-mix(in srgb, var(--noir) 60%, transparent); }
 .bars { display: flex; gap: 4px; }
 .bars i { flex: 1; height: 3px; border-radius: 3px; background: color-mix(in srgb, var(--cream) 30%, transparent); overflow: hidden; position: relative; }
 .bars i::after { content: ""; position: absolute; inset: 0; background: var(--cream); transform-origin: left; transform: scaleX(0); }
@@ -486,6 +491,7 @@ footer :focus-visible { outline-color: var(--blush); }
       <span class="chip c3" aria-hidden="true"><i></i>Grafika a weby</span>
       <div class="phone">
         <div class="screen">
+          <video class="screen-bg" id="hero-video" src="video/hero-kuchyn-1.mp4" poster="video/hero-kuchyn-1.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
           <div class="bars" id="bars" aria-hidden="true"><i class="on"></i><i class="run"></i><i></i><i></i></div>
           <div class="acct" aria-hidden="true"><span class="av"><span class="logo">sol<svg aria-hidden="true"><use href="#tick"/></svg></span></span><span>solvmedia <small>· Reels</small></span></div>
           <div class="caption" id="caption" aria-hidden="true"><span>Tohle</span> <span>video</span> <span>natočíme</span> <span>a</span> <span>sestříháme</span> <span>za</span> <span class="lit">vás.</span></div>
@@ -679,6 +685,10 @@ footer :focus-visible { outline-color: var(--blush); }
 <script>
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Video v telefonu v úvodu: při omezení animací zůstane jen úvodní snímek
+  var heroVideo = document.getElementById('hero-video');
+  if (heroVideo && reduce) { heroVideo.removeAttribute('autoplay'); heroVideo.pause(); }
 
   // Titulky v telefonu se rozsvěcují slovo po slově jako u reelu
   var words = Array.prototype.slice.call(document.querySelectorAll('#caption span'));
