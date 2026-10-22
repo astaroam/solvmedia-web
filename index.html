@@ -344,21 +344,42 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
   radial-gradient(40% 60% at 0% 100%, color-mix(in srgb, var(--espresso) 80%, transparent), transparent 70%),
   var(--mocha); }
 .process .wrap { padding-block: var(--sec); display: grid; gap: 64px; }
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); counter-reset: s; }
-.steps li { counter-increment: s; padding: 0 28px; border-left: 1.5px solid var(--cream-line); display: grid; gap: 10px; align-content: start; min-width: 0; }
-.steps li:first-child { padding-left: 0; border-left: 0; }
-.steps li::before { content: "0" counter(s); font: 700 clamp(3rem, 6vw, 5rem)/1.1 var(--display); letter-spacing: -0.04em; color: var(--blush); }
-.steps h3 { font-size: 1.4rem; line-height: 1.25; }
-.steps .when { color: var(--rose); }
-.steps p { color: var(--cream-dim); font-size: 0.97rem; }
-@media (max-width: 900px) {
-  .steps { grid-template-columns: 1fr 1fr; row-gap: 48px; }
-  .steps li:nth-child(3) { padding-left: 0; border-left: 0; }
+/* Kroky jako schody: každá karta o kus výš, za nimi přerušovaná cesta vzhůru, poslední karta končí fajfkou z loga */
+.road { position: relative; }
+.road-line { position: absolute; left: 0; right: 0; top: 40px; width: 100%; height: calc(100% - 80px); overflow: visible; pointer-events: none; }
+.road-line path { fill: none; stroke: var(--blush); stroke-width: 3; stroke-dasharray: 0.5 12; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.steps { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-items: start; counter-reset: s; }
+.step { --stair: 0px; position: relative; counter-increment: s; margin-top: var(--stair); padding: 26px 24px 28px; border-radius: 28px; display: grid; gap: 12px; align-content: start; min-width: 0; background: var(--cream); color: var(--ink); box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--noir) 80%, transparent); transition: transform .25s ease; }
+.step:hover { transform: translateY(-6px) rotate(-1deg); }
+.step:nth-child(1) { --stair: 168px; transform: rotate(-2deg); }
+.step:nth-child(2) { --stair: 112px; background: var(--powder); transform: rotate(1.5deg); }
+.step:nth-child(3) { --stair: 56px; background: var(--espresso); color: var(--cream); outline: 1.5px solid var(--cream-line); outline-offset: -1.5px; transform: rotate(-1deg); }
+.step:nth-child(4) { background: var(--blush); transform: rotate(2deg); }
+.step::after { content: "0" counter(s); position: absolute; top: -0.6em; left: 18px; font: 700 clamp(3rem, 5vw, 4.6rem)/1 var(--display); letter-spacing: -0.05em; color: transparent; -webkit-text-stroke: 1.5px var(--blush); }
+.step-top { display: flex; align-items: center; gap: 10px; }
+.step-icon { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: var(--ink); color: var(--blush); flex: none; }
+.step:nth-child(3) .step-icon { background: var(--blush); color: var(--ink); }
+.step-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.step .when { color: var(--rose-deep); }
+.step:nth-child(3) .when { color: var(--blush); }
+.step h3 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); line-height: 1.15; letter-spacing: -0.03em; margin-top: 18px; }
+.step p { color: color-mix(in srgb, currentColor 72%, transparent); font-size: 0.97rem; }
+.step-sticker { position: absolute; left: 50%; bottom: -18px; translate: -50% 0; font: 600 0.82rem/1 var(--display); padding: 0.85em 1.15em; border-radius: 999px; background: var(--blush); color: var(--ink); white-space: nowrap; transform: rotate(-4deg); box-shadow: 0 12px 24px -12px color-mix(in srgb, var(--noir) 80%, transparent); }
+.step-done { position: absolute; top: -26px; right: -14px; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); box-shadow: 0 0 0 6px var(--mocha); }
+.step-done svg { width: 30px; height: 26px; fill: var(--blush); }
+@media (max-width: 1100px) {
+  .road-line { display: none; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 56px 24px; }
+  .step:nth-child(1), .step:nth-child(3) { --stair: 0px; }
+  .step:nth-child(2), .step:nth-child(4) { --stair: 64px; }
 }
-@media (max-width: 520px) {
-  .steps { grid-template-columns: 1fr; row-gap: 32px; }
-  .steps li { padding: 20px 0 0; border-left: 0; border-top: 1.5px solid var(--cream-line); }
-  .steps li:first-child { border-top: 0; padding-top: 0; }
+@media (max-width: 620px) {
+  .road::before { content: ""; position: absolute; left: 21px; top: 30px; bottom: 30px; border-left: 2px dotted color-mix(in srgb, var(--blush) 70%, transparent); }
+  .steps { grid-template-columns: 1fr; gap: 64px; padding-top: 24px; }
+  .step-sticker { left: 24px; translate: 0 0; }
+  .step, .step:nth-child(n) { --stair: 0px; transform: none; }
+  .step:nth-child(even) { margin-left: 18px; }
+  .step:hover { transform: none; }
 }
 
 /* Tým – pudrový panel */
@@ -620,15 +641,34 @@ footer :focus-visible { outline-color: var(--blush); }
   <section class="process panel dark" id="postup">
     <div class="wrap">
       <div class="head">
-        <div><span class="label eyebrow">Postup</span><h2>Jak to probíhá</h2></div>
+        <div><span class="label eyebrow">Postup</span><h2>Jak to <span class="accent">probíhá</span></h2></div>
         <p>Žádné dlouhé nabídky ani schůzky kvůli schůzkám. Čtyři kroky a pořád víte, kde jsme.</p>
       </div>
-      <ol class="steps">
-        <li><span class="label when">Týden 1</span><h3>Hovor</h3><p>Probereme firmu, zákazníky a cíl. Rovnou řekneme, co dává smysl a co ne.</p></li>
-        <li><span class="label when">Týden 1–2</span><h3>Plán</h3><p>Dostanete plán: kanály, témata, natáčecí dny, rozpočet a co od vás budeme potřebovat.</p></li>
-        <li><span class="label when">Průběžně</span><h3>Tvorba</h3><p>Točíme, stříháme, píšeme a publikujeme. Nic nevyjde, dokud to neschválíte.</p></li>
-        <li><span class="label when">Každý měsíc</span><h3>Vyhodnocení</h3><p>Ukážeme, co fungovalo a co ne, a podle toho upravíme další měsíc.</p></li>
-      </ol>
+      <div class="road">
+        <svg class="road-line" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true"><path d="M10 290 C 220 290, 230 200, 380 190 S 560 110, 640 100 S 860 20, 990 12"/></svg>
+        <ol class="steps">
+        <li class="step">
+          <div class="step-top"><span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><span class="label when">Týden 1</span></div>
+          <h3>Hovor</h3>
+          <p>Probereme firmu, zákazníky a cíl. Rovnou řekneme, co dává smysl a co ne.</p>
+        </li>
+        <li class="step">
+          <div class="step-top"><span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/></svg></span><span class="label when">Týden 1–2</span></div>
+          <h3>Plán</h3>
+          <p>Dostanete plán: kanály, témata, natáčecí dny, rozpočet a co od vás budeme potřebovat.</p>
+        </li>
+        <li class="step">
+          <div class="step-top"><span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="13" height="11" rx="2"/><path d="M16 11l5-3v9l-5-3z"/></svg></span><span class="label when">Průběžně</span></div>
+          <h3>Tvorba</h3>
+          <p>Točíme, stříháme, píšeme a publikujeme. Nic nevyjde, dokud to neschválíte.</p><span class="step-sticker" aria-hidden="true">Bez vašeho OK nic nevyjde</span>
+        </li>
+        <li class="step">
+          <div class="step-top"><span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16l4-5 3 3 5-7"/></svg></span><span class="label when">Každý měsíc</span></div>
+          <h3>Vyhodnocení</h3>
+          <p>Ukážeme, co fungovalo a co ne, a podle toho upravíme další měsíc.</p><span class="step-done" aria-hidden="true"><svg><use href="#tick"/></svg></span>
+        </li>
+        </ol>
+      </div>
     </div>
   </section>
 
