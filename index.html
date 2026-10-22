@@ -328,14 +328,18 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .work.shot figcaption { padding: 16px 20px 20px; }
 
 /* 03 Grafika: kartičky jako polaroid, vedle velká výzva */
-.works-arts { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; }
-.work.art { padding: 12px 12px 0; background: var(--cream); color: var(--ink); justify-content: flex-start; border-radius: 18px; box-shadow: 0 0 0 1.5px var(--latte-line), 0 30px 50px -28px color-mix(in srgb, var(--mocha) 85%, transparent); transform: rotate(-3deg); transition: transform .3s ease; }
-.work.art + .work.art { transform: rotate(2.5deg) translateY(18px); }
-.work.art:hover { transform: rotate(0) translateY(-6px); }
+.works-arts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px clamp(20px, 3vw, 40px); align-items: start; }
+.work.art { padding: 12px 12px 0; background: var(--cream); color: var(--ink); justify-content: flex-start; border-radius: 18px; box-shadow: 0 0 0 1.5px var(--latte-line), 0 30px 50px -28px color-mix(in srgb, var(--mocha) 85%, transparent); --tilt: -2.5deg; --drop: 0px; transform: translateY(var(--drop)) rotate(var(--tilt)); transition: transform .3s ease; }
+.work.art:nth-child(2) { --tilt: 2deg; --drop: 28px; }
+.work.art:nth-child(3) { --tilt: -1.5deg; --drop: 8px; }
+.work.art:nth-child(4) { --tilt: 2.5deg; }
+.work.art:nth-child(5) { --tilt: -2deg; --drop: 24px; }
+.work.art:hover { transform: translateY(calc(var(--drop) - 6px)) rotate(0); }
 .work.art > picture { display: block; aspect-ratio: 1; border-radius: 10px; overflow: hidden; }
+.work.art.tall > picture { aspect-ratio: 4 / 5; }
 .work.art > picture > img { position: static; display: block; z-index: auto; width: 100%; height: 100%; object-fit: cover; }
 .work.art figcaption { padding: 14px 6px 16px; }
-.work.cta-tile { grid-column: span 2; background: var(--ink); color: var(--cream); justify-content: flex-end; gap: 14px; padding: clamp(26px, 3.4vw, 48px); border-radius: 28px; min-height: 100%; overflow: visible; }
+.work.cta-tile { grid-column: auto; align-self: stretch; margin-top: 24px; background: var(--ink); color: var(--cream); justify-content: flex-end; gap: 14px; padding: clamp(26px, 3.4vw, 48px); border-radius: 28px; min-height: 100%; overflow: visible; }
 .work.cta-tile::before { content: ""; position: absolute; top: -26px; right: 28px; width: 72px; height: 72px; border-radius: 50%; background: var(--blush) no-repeat center / 34px 30px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='755 98 365 320'%3E%3Cpolygon fill='%23070D0D' points='755,280 818,218 880,283 1060,98 1120,158 880,418'/%3E%3C/svg%3E"); transform: rotate(8deg); }
 .cta-tile .cta-h { font: 700 clamp(1.8rem, 3vw, 2.8rem)/1.08 var(--display); letter-spacing: -0.03em; margin: 0; max-width: 13em; }
 .cta-tile .cta-h .accent { background: none; padding: 0; color: var(--blush); }
@@ -350,7 +354,8 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
   .work.reel:nth-child(even) { transform: translateY(40px) rotate(1.5deg); }
   .works-webs { grid-template-columns: 1fr; padding-bottom: 0; }
   .work.shot + .work.shot { transform: rotate(1deg); }
-  .works-arts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 18px; }
+  .works-arts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 18px; }
+  .work.art:nth-child(n) { --drop: 0px; }
   .work.cta-tile { grid-column: 1 / -1; margin-top: 24px; }
   .work figcaption b { font-size: 1.05rem; }
   .work figcaption span { font-size: 0.8rem; }
@@ -662,9 +667,12 @@ footer :focus-visible { outline-color: var(--blush); }
           </div>
         </div>
         <div class="pf-ch">
-          <div class="pf-ch-head"><span class="pf-no" aria-hidden="true">03</span><h3>Grafika a kampaně</h3><span class="label pf-count">2 kampaně</span></div>
+          <div class="pf-ch-head"><span class="pf-no" aria-hidden="true">03</span><h3>Grafika a kampaně</h3><span class="label pf-count">5 grafik</span></div>
           <div class="works works-arts">
+          <figure class="work art tall"><picture><source type="image/webp" srcset="img/mpl-darek-540.webp 540w, img/mpl-darek-1080.webp 1080w" sizes="(max-width: 900px) 50vw, 400px"><img src="img/mpl-darek-1080.jpg" srcset="img/mpl-darek-540.jpg 540w, img/mpl-darek-1080.jpg 1080w" sizes="(max-width: 900px) 50vw, 400px" alt="Příspěvek pro MPL Stavebniny: dárek zdarma k půjčovnému nad 1 000 Kč" width="1080" height="1350" loading="lazy" decoding="async"></picture><figcaption><b>MPL Stavebniny</b><span>Dárek k půjčovnému nářadí</span></figcaption></figure>
+          <figure class="work art tall"><picture><source type="image/webp" srcset="img/mpl-haspl-540.webp 540w, img/mpl-haspl-1080.webp 1080w" sizes="(max-width: 900px) 50vw, 400px"><img src="img/mpl-haspl-1080.jpg" srcset="img/mpl-haspl-540.jpg 540w, img/mpl-haspl-1080.jpg 1080w" sizes="(max-width: 900px) 50vw, 400px" alt="Příspěvek pro MPL Stavebniny: malé balení spojovacího materiálu HASPL" width="1080" height="1350" loading="lazy" decoding="async"></picture><figcaption><b>MPL Stavebniny</b><span>Novinka: malá balení HASPL</span></figcaption></figure>
           <figure class="work art"><picture><source type="image/webp" srcset="img/hq-husqvarna-pily-600.webp 600w, img/hq-husqvarna-pily-1200.webp 1200w" sizes="(max-width: 900px) 50vw, 300px"><img src="img/hq-husqvarna-pily-1200.jpg" srcset="img/hq-husqvarna-pily-600.jpg 600w, img/hq-husqvarna-pily-1200.jpg 1200w" sizes="(max-width: 900px) 50vw, 300px" alt="Příspěvek pro HQ Technik Ostrava: podzimní slevy na motorové pily Husqvarna" width="1200" height="1200" loading="lazy" decoding="async"></picture><figcaption><b>HQ Technik Ostrava</b><span>Podzimní akce na techniku Husqvarna</span></figcaption></figure>
+          <figure class="work art tall"><picture><source type="image/webp" srcset="img/mpl-sigill-540.webp 540w, img/mpl-sigill-1080.webp 1080w" sizes="(max-width: 900px) 50vw, 400px"><img src="img/mpl-sigill-1080.jpg" srcset="img/mpl-sigill-540.jpg 540w, img/mpl-sigill-1080.jpg 1080w" sizes="(max-width: 900px) 50vw, 400px" alt="Příspěvek pro MPL Stavebniny: akční balení PU pěny Sigill a JUB s pistolí zdarma" width="1080" height="1350" loading="lazy" decoding="async"></picture><figcaption><b>MPL Stavebniny</b><span>Akční balení Sigill a JUB</span></figcaption></figure>
           <figure class="work art"><picture><source type="image/webp" srcset="img/hq-automower-600.webp 600w, img/hq-automower-1200.webp 1200w" sizes="(max-width: 900px) 50vw, 300px"><img src="img/hq-automower-1200.jpg" srcset="img/hq-automower-600.jpg 600w, img/hq-automower-1200.jpg 1200w" sizes="(max-width: 900px) 50vw, 300px" alt="Příspěvek pro HQ Technik Ostrava: Husqvarna Automower s prodlouženou zárukou 3 roky" width="1200" height="1200" loading="lazy" decoding="async"></picture><figcaption><b>Husqvarna Automower</b><span>Reklamní kampaň na prodlouženou záruku</span></figcaption></figure>
           <div class="work cta-tile"><p class="cta-h">Chcete podobný obsah pro <span class="accent">svou firmu</span>?</p><p>Napište nám, co potřebujete. Ozveme se do dvou pracovních dnů.</p><a class="pill" href="#kontakt">Chci poptávku <span class="arr" aria-hidden="true">→</span></a></div>
           </div>
