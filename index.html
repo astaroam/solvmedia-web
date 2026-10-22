@@ -216,6 +216,30 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 }
 
 /* Služby – latte panel */
+/* Pás s logy klientů: jednobarevná loga v grey brown, nekonečně jedou do strany, při najetí myší se zastaví */
+.clients { padding-block: 8px clamp(48px, 6vw, 80px); }
+.clients-h { color: var(--ink-dim); text-align: center; margin-bottom: 28px; font-size: 0.76rem; }
+.clients-strip { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.clients-track { display: flex; width: max-content; animation: clients 60s linear infinite; }
+.clients-strip:hover .clients-track { animation-play-state: paused; }
+.clients-list { display: flex; align-items: center; gap: clamp(48px, 7vw, 96px); margin: 0; padding: 0 clamp(24px, 3.5vw, 48px); list-style: none; }
+.clients-list li { flex: none; }
+.clients-list img { display: block; width: auto; height: clamp(34px, 4vw, 48px); opacity: 0.82; transition: opacity .2s ease; }
+.clients-list li:hover img { opacity: 1; }
+.clients-list .c-hq img { height: clamp(26px, 3vw, 36px); }
+.clients-list .c-mpa img { height: clamp(26px, 3vw, 36px); }
+.clients-list .c-postera img { height: clamp(28px, 3.2vw, 38px); }
+.clients-list .c-ebistro img { height: clamp(40px, 4.8vw, 58px); }
+.clients-list .c-walkin img, .clients-list .c-sharp img, .clients-list .c-naklad4 img { height: clamp(48px, 5.6vw, 68px); }
+.clients-list .c-rdk img { height: clamp(22px, 2.6vw, 32px); }
+@keyframes clients { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .clients-strip { -webkit-mask-image: none; mask-image: none; }
+  .clients-track { width: auto; }
+  .clients-list { flex-wrap: wrap; justify-content: center; row-gap: 28px; margin-inline: auto; padding-inline: var(--gl); }
+  .clients-list[aria-hidden="true"] { display: none; }
+}
+
 .services { background: var(--latte); }
 .services .wrap { padding-block: var(--sec); display: grid; gap: 56px; }
 .cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
@@ -480,6 +504,20 @@ footer :focus-visible { outline-color: var(--blush); }
     </div>
   </section>
 
+
+  <section class="clients" id="klienti" aria-labelledby="klienti-h">
+    <div class="wrap">
+      <h2 class="label clients-h" id="klienti-h">Spolupracujeme s</h2>
+    </div>
+    <div class="clients-strip">
+      <div class="clients-track">
+        <ul class="clients-list"><li class="c-mpl"><img src="img/klient-mpl-1.png" alt="MPL Stavebniny" width="366" height="160" loading="lazy" decoding="async"></li><li class="c-walkin"><img src="img/klient-walkin-1.png" alt="The Original Walk-in Barber" width="339" height="240" loading="lazy" decoding="async"></li><li class="c-hq"><img src="img/klient-hq-1.png" alt="HQ Technik Ostrava" width="845" height="160" loading="lazy" decoding="async"></li><li class="c-sharp"><img src="img/klient-sharp-1.svg" alt="The Sharp Barbershop" width="1092" height="677" loading="lazy" decoding="async"></li><li class="c-mpa"><img src="img/klient-mpa-1.png" alt="MPA stav" width="518" height="160" loading="lazy" decoding="async"></li><li class="c-rdk"><img src="img/klient-rdk-1.png" alt="RDK Motorworks" width="602" height="160" loading="lazy" decoding="async"></li><li class="c-ebistro"><img src="img/klient-ebistro-1.png" alt="eBISTRO Místek" width="410" height="160" loading="lazy" decoding="async"></li><li class="c-naklad4"><img src="img/klient-naklad4-1.png" alt="Nákladní 4" width="190" height="240" loading="lazy" decoding="async"></li><li class="c-postera"><img src="img/klient-postera-1.svg" alt="postera." width="596" height="150" loading="lazy" decoding="async"></li></ul>
+        <ul class="clients-list" aria-hidden="true"><li class="c-mpl"><img src="img/klient-mpl-1.png" alt="" width="366" height="160" loading="lazy" decoding="async"></li><li class="c-walkin"><img src="img/klient-walkin-1.png" alt="" width="339" height="240" loading="lazy" decoding="async"></li><li class="c-hq"><img src="img/klient-hq-1.png" alt="" width="845" height="160" loading="lazy" decoding="async"></li><li class="c-sharp"><img src="img/klient-sharp-1.svg" alt="" width="1092" height="677" loading="lazy" decoding="async"></li><li class="c-mpa"><img src="img/klient-mpa-1.png" alt="" width="518" height="160" loading="lazy" decoding="async"></li><li class="c-rdk"><img src="img/klient-rdk-1.png" alt="" width="602" height="160" loading="lazy" decoding="async"></li><li class="c-ebistro"><img src="img/klient-ebistro-1.png" alt="" width="410" height="160" loading="lazy" decoding="async"></li><li class="c-naklad4"><img src="img/klient-naklad4-1.png" alt="" width="190" height="240" loading="lazy" decoding="async"></li><li class="c-postera"><img src="img/klient-postera-1.svg" alt="" width="596" height="150" loading="lazy" decoding="async"></li></ul>
+        <ul class="clients-list" aria-hidden="true"><li class="c-mpl"><img src="img/klient-mpl-1.png" alt="" width="366" height="160" loading="lazy" decoding="async"></li><li class="c-walkin"><img src="img/klient-walkin-1.png" alt="" width="339" height="240" loading="lazy" decoding="async"></li><li class="c-hq"><img src="img/klient-hq-1.png" alt="" width="845" height="160" loading="lazy" decoding="async"></li><li class="c-sharp"><img src="img/klient-sharp-1.svg" alt="" width="1092" height="677" loading="lazy" decoding="async"></li><li class="c-mpa"><img src="img/klient-mpa-1.png" alt="" width="518" height="160" loading="lazy" decoding="async"></li><li class="c-rdk"><img src="img/klient-rdk-1.png" alt="" width="602" height="160" loading="lazy" decoding="async"></li><li class="c-ebistro"><img src="img/klient-ebistro-1.png" alt="" width="410" height="160" loading="lazy" decoding="async"></li><li class="c-naklad4"><img src="img/klient-naklad4-1.png" alt="" width="190" height="240" loading="lazy" decoding="async"></li><li class="c-postera"><img src="img/klient-postera-1.svg" alt="" width="596" height="150" loading="lazy" decoding="async"></li></ul>
+        <ul class="clients-list" aria-hidden="true"><li class="c-mpl"><img src="img/klient-mpl-1.png" alt="" width="366" height="160" loading="lazy" decoding="async"></li><li class="c-walkin"><img src="img/klient-walkin-1.png" alt="" width="339" height="240" loading="lazy" decoding="async"></li><li class="c-hq"><img src="img/klient-hq-1.png" alt="" width="845" height="160" loading="lazy" decoding="async"></li><li class="c-sharp"><img src="img/klient-sharp-1.svg" alt="" width="1092" height="677" loading="lazy" decoding="async"></li><li class="c-mpa"><img src="img/klient-mpa-1.png" alt="" width="518" height="160" loading="lazy" decoding="async"></li><li class="c-rdk"><img src="img/klient-rdk-1.png" alt="" width="602" height="160" loading="lazy" decoding="async"></li><li class="c-ebistro"><img src="img/klient-ebistro-1.png" alt="" width="410" height="160" loading="lazy" decoding="async"></li><li class="c-naklad4"><img src="img/klient-naklad4-1.png" alt="" width="190" height="240" loading="lazy" decoding="async"></li><li class="c-postera"><img src="img/klient-postera-1.svg" alt="" width="596" height="150" loading="lazy" decoding="async"></li></ul>
+      </div>
+    </div>
+  </section>
 
   <section class="services panel" id="sluzby">
     <div class="wrap">
