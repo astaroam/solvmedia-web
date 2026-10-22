@@ -276,69 +276,87 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 
 /* Portfolio */
 .portfolio .wrap { padding-block: var(--sec); display: grid; gap: 56px; }
-.works { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+/* Portfolio ve třech kapitolách: reels v rámečcích telefonů do schodu, weby v okně prohlížeče, grafika jako natočené kartičky */
+.pf { display: grid; gap: clamp(72px, 8vw, 112px); }
+.pf-ch { display: grid; gap: 28px; }
+.pf-ch-head { display: flex; align-items: baseline; gap: 18px; padding-bottom: 18px; border-bottom: 1.5px solid var(--latte-line); }
+.pf-no { font: 700 clamp(2.6rem, 5vw, 4.2rem)/1 var(--display); letter-spacing: -0.05em; color: transparent; -webkit-text-stroke: 1.5px var(--rose-deep); }
+.pf-ch-head h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.03em; line-height: 1.1; }
+.pf-count { margin-left: auto; color: var(--mocha-soft); }
+.works { display: grid; gap: 20px; }
 .work { position: relative; margin: 0; min-width: 0; border-radius: 22px; overflow: hidden; isolation: isolate; color: var(--cream); background: var(--mocha); display: flex; flex-direction: column; justify-content: space-between; padding: 18px; }
-.work.reel { aspect-ratio: 9 / 16; }
-.work.wide { grid-column: span 2; min-height: 100%; }
-.work.post { aspect-ratio: 4 / 5; }
 .work > img, .work > video, .work > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.work.shot img { object-position: top center; }
-.work.shot { justify-content: flex-end; aspect-ratio: 16 / 10; min-height: 0; }
-.work::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, color-mix(in srgb, var(--ink) 75%, transparent), transparent 45%); }
-.work.shot::after { background: linear-gradient(to top, var(--ink) 8%, color-mix(in srgb, var(--ink) 60%, transparent) 30%, transparent 55%); }
-.work .tag { align-self: flex-start; font: 600 0.75rem/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; padding: 0.55em 0.75em; border-radius: 999px; background: color-mix(in srgb, var(--ink) 50%, transparent); color: var(--cream); backdrop-filter: blur(6px); }
+.work .tag { align-self: flex-start; font: 600 0.75rem/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; padding: 0.55em 0.75em; border-radius: 999px; background: var(--blush); color: var(--ink); }
 .work figcaption { display: grid; gap: 4px; }
 .work figcaption b { font: 700 1.25rem/1.2 var(--display); letter-spacing: -0.015em; }
 .work figcaption span { font-size: 0.88rem; line-height: 1.45; opacity: 0.8; }
-.work .play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--cream) 24%, transparent); backdrop-filter: blur(6px); border: 1.5px solid color-mix(in srgb, var(--cream) 50%, transparent); }
-.work .play::before { content: ""; margin-left: 5px; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent var(--cream); }
+.work figcaption a { color: inherit; text-decoration: none; pointer-events: auto; }
+.work figcaption a:hover { color: var(--rose-deep); }
+.work .play { position: absolute; left: 50%; top: 50%; width: 68px; height: 68px; margin: -34px 0 0 -34px; border-radius: 50%; display: grid; place-items: center; background: var(--blush); border: 0; box-shadow: 0 0 0 8px color-mix(in srgb, var(--blush) 35%, transparent); }
+.work .play::before { content: ""; margin-left: 5px; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent var(--ink); }
+
+/* 01 Reels: rámeček telefonu, sudé o kus níž a natočené na druhou stranu */
+.works-reels { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-bottom: 56px; }
+.work.reel { aspect-ratio: 9 / 16; border-radius: 30px; box-shadow: 0 0 0 8px var(--ink), 0 40px 60px -30px color-mix(in srgb, var(--mocha) 90%, transparent); transform: rotate(-1.5deg); transition: transform .3s ease; margin: 8px; }
+.work.reel:nth-child(even) { transform: translateY(56px) rotate(1.5deg); }
+.work.reel:hover, .work.reel.on { transform: translateY(-6px) rotate(0); }
+.work.reel:nth-child(even):hover, .work.reel:nth-child(even).on { transform: translateY(50px) rotate(0); }
 .work.vid { background: var(--espresso); padding: 0; }
 .work.vid > video { z-index: 0; }
 .work.vid .tag { position: absolute; top: 14px; left: 14px; z-index: 2; }
 .work.vid figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 18px; pointer-events: none; }
-.work.vid::after { background: linear-gradient(to top, var(--ink) 4%, color-mix(in srgb, var(--ink) 70%, transparent) 26%, transparent 50%); z-index: 1; pointer-events: none; transition: opacity .3s; }
+.work.vid::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--ink) 4%, color-mix(in srgb, var(--ink) 70%, transparent) 26%, transparent 50%); z-index: 1; pointer-events: none; transition: opacity .3s; }
 .work.vid .play { z-index: 2; cursor: pointer; padding: 0; transition: transform .2s, opacity .3s; }
 .work.vid .play:hover { transform: scale(1.08); }
 .work.vid .play:focus-visible { outline: 3px solid var(--blush); outline-offset: 3px; }
 .work.vid.on .tag, .work.vid.on .play, .work.vid.on figcaption, .work.vid.on::after { opacity: 0; visibility: hidden; }
 .work.vid.on > video { z-index: 3; }
-.work.art { padding: 0; background: var(--espresso); justify-content: flex-start; }
-.work.art::after { content: none; }
-.work.art > picture { display: block; aspect-ratio: 1; }
-.work.art > picture > img { position: static; display: block; z-index: auto; }
-.work.art figcaption { padding: 16px 18px 18px; }
-.work figcaption a { color: inherit; text-decoration: none; pointer-events: auto; }
-.work figcaption a:hover { color: var(--blush); }
-.work .big { position: absolute; inset: 0; z-index: -1; display: grid; place-items: center; text-align: center; padding: 14% 12% 36%; font: 700 clamp(1.4rem, 2.2vw, 1.9rem)/1.1 var(--display); letter-spacing: -0.03em; }
-.work.g1 { background: radial-gradient(90% 60% at 80% 15%, color-mix(in srgb, var(--blush) 55%, transparent), transparent 65%), var(--mocha); }
-.work.g2 { background: radial-gradient(80% 60% at 20% 80%, color-mix(in srgb, var(--blush) 40%, transparent), transparent 65%), var(--espresso); }
-.work.g3 { background: linear-gradient(160deg, var(--powder), var(--rose)); color: var(--ink); }
-.work.g4 { background: radial-gradient(90% 60% at 50% 30%, color-mix(in srgb, var(--cream) 30%, transparent), transparent 65%), var(--rose-deep); }
-.work.g5 { background: var(--latte); color: var(--ink); }
-.work.g3::after, .work.g5::after { background: none; }
-.work.g3 .play, .work.g5 .play { background: color-mix(in srgb, var(--ink) 12%, transparent); border-color: color-mix(in srgb, var(--ink) 30%, transparent); }
-.work.g3 .play::before { border-left-color: var(--ink); }
-.work .big .accent { background: none; padding: 0; color: var(--blush); }
-.work.g5 .big .accent { color: var(--rose-deep); }
-.work.cta-tile { background: var(--blush); color: var(--ink); justify-content: flex-end; gap: 14px; padding: clamp(22px, 3vw, 40px); }
-.work.cta-tile::after { content: none; }
-.cta-tile .cta-h { font: 700 clamp(1.6rem, 2.6vw, 2.4rem)/1.1 var(--display); letter-spacing: -0.025em; margin: 0; max-width: 14em; }
-.cta-tile .cta-h .accent { background: none; padding: 0; color: var(--rose-deep); }
-.cta-tile p { margin: 0; max-width: 28em; }
-.cta-tile .pill { align-self: flex-start; margin-top: 8px; }
+
+/* 02 Weby: okno prohlížeče, druhé posunuté a natočené */
+.works-webs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); padding-bottom: 40px; }
+.work.shot { padding: 0; background: var(--cream); color: var(--ink); border-radius: 20px; box-shadow: 0 0 0 1.5px var(--latte-line), 0 40px 70px -36px color-mix(in srgb, var(--mocha) 85%, transparent); justify-content: flex-start; transform: rotate(-1deg); transition: transform .3s ease; }
+.work.shot + .work.shot { transform: translateY(40px) rotate(1.2deg); }
+.work.shot:hover { transform: translateY(-6px) rotate(0); }
+.work.shot + .work.shot:hover { transform: translateY(34px) rotate(0); }
+.browser-bar { display: flex; align-items: center; gap: 7px; padding: 12px 14px; background: var(--latte); }
+.browser-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--rose); flex: none; }
+.browser-bar i:nth-child(2) { background: var(--blush); }
+.browser-bar i:nth-child(3) { background: var(--cream-dim); }
+.browser-bar span { margin-left: 10px; flex: 1; min-width: 0; font: 500 0.78rem/1 var(--body); color: var(--mocha-soft); background: var(--cream); padding: 7px 12px; border-radius: 999px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.work.shot > picture { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+.work.shot > picture > img { position: static; display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: auto; }
+.work.shot figcaption { padding: 16px 20px 20px; }
+
+/* 03 Grafika: kartičky jako polaroid, vedle velká výzva */
+.works-arts { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; }
+.work.art { padding: 12px 12px 0; background: var(--cream); color: var(--ink); justify-content: flex-start; border-radius: 18px; box-shadow: 0 0 0 1.5px var(--latte-line), 0 30px 50px -28px color-mix(in srgb, var(--mocha) 85%, transparent); transform: rotate(-3deg); transition: transform .3s ease; }
+.work.art + .work.art { transform: rotate(2.5deg) translateY(18px); }
+.work.art:hover { transform: rotate(0) translateY(-6px); }
+.work.art > picture { display: block; aspect-ratio: 1; border-radius: 10px; overflow: hidden; }
+.work.art > picture > img { position: static; display: block; z-index: auto; width: 100%; height: 100%; object-fit: cover; }
+.work.art figcaption { padding: 14px 6px 16px; }
+.work.cta-tile { grid-column: span 2; background: var(--ink); color: var(--cream); justify-content: flex-end; gap: 14px; padding: clamp(26px, 3.4vw, 48px); border-radius: 28px; min-height: 100%; overflow: visible; }
+.work.cta-tile::before { content: ""; position: absolute; top: -26px; right: 28px; width: 72px; height: 72px; border-radius: 50%; background: var(--blush) no-repeat center / 34px 30px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='755 98 365 320'%3E%3Cpolygon fill='%23070D0D' points='755,280 818,218 880,283 1060,98 1120,158 880,418'/%3E%3C/svg%3E"); transform: rotate(8deg); }
+.cta-tile .cta-h { font: 700 clamp(1.8rem, 3vw, 2.8rem)/1.08 var(--display); letter-spacing: -0.03em; margin: 0; max-width: 13em; }
+.cta-tile .cta-h .accent { background: none; padding: 0; color: var(--blush); }
+.cta-tile p { margin: 0; max-width: 28em; color: var(--cream-dim); }
+.cta-tile .pill { align-self: flex-start; margin-top: 8px; background: var(--blush); color: var(--ink); }
+.cta-tile .pill:hover { background: var(--cream); }
+.cta-tile .pill .arr { color: var(--ink); }
 .portfolio-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; padding-top: 28px; border-top: 1px solid var(--latte-line); }
 .portfolio-foot p { color: var(--ink-dim); max-width: 34em; }
 @media (max-width: 900px) {
-  .works { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .work.wide { grid-column: 1 / -1; aspect-ratio: 16 / 10; min-height: 0; }
-  .work.cta-tile { aspect-ratio: auto; }
-  .work { padding: 14px; border-radius: 18px; }
+  .works-reels { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 18px; padding-bottom: 40px; }
+  .work.reel:nth-child(even) { transform: translateY(40px) rotate(1.5deg); }
+  .works-webs { grid-template-columns: 1fr; padding-bottom: 0; }
+  .work.shot + .work.shot { transform: rotate(1deg); }
+  .works-arts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 18px; }
+  .work.cta-tile { grid-column: 1 / -1; margin-top: 24px; }
   .work figcaption b { font-size: 1.05rem; }
   .work figcaption span { font-size: 0.8rem; }
-  .work .play { width: 52px; height: 52px; margin: -26px 0 0 -26px; }
-  .work .big { font-size: 1.15rem; padding: 20% 10% 44%; }
+  .work .play { width: 54px; height: 54px; margin: -27px 0 0 -27px; box-shadow: 0 0 0 6px color-mix(in srgb, var(--blush) 35%, transparent); }
 }
-@media (max-width: 480px) { .work.post figcaption span { display: none; } .work.vid figcaption { padding: 12px; } .work.vid figcaption span { font-size: 0.74rem; } .work.vid .tag { top: 10px; left: 10px; } .work .big { padding-bottom: 30%; } }
+@media (max-width: 480px) { .work.vid figcaption { padding: 12px; } .work.vid figcaption span { font-size: 0.74rem; } .work.vid .tag { top: 10px; left: 10px; } .work.reel { margin: 6px; box-shadow: 0 0 0 6px var(--ink), 0 30px 50px -30px color-mix(in srgb, var(--mocha) 90%, transparent); } .pf-ch-head { flex-wrap: wrap; gap: 4px 14px; } }
 
 /* Postup – mocha panel */
 .process { background:
@@ -626,16 +644,31 @@ footer :focus-visible { outline-color: var(--blush); }
         <div><span class="label eyebrow">Portfolio</span><h2>Ukázky <span class="accent">naší práce</span></h2></div>
         <p>Videa, která jsme natočili pro naše klienty, příspěvky na sítě i weby. Klikněte na video a pusťte si ho se zvukem.</p>
       </div>
-      <div class="works">
-        <figure class="work reel vid"><video src="video/mpl-jupol.mp4" poster="video/mpl-jupol.jpg" preload="none" playsinline aria-label="Video pro MPL Stavebniny: akce na barvu Jupol"></video><span class="tag">Akce</span><button class="play" type="button" aria-label="Přehrát video: MPL Stavebniny"></button><figcaption><b>MPL Stavebniny</b><span>Promo video na akční barvu Jupol</span></figcaption></figure>
-        <figure class="work reel vid"><video src="video/mpa-kuchyn-2.mp4" poster="video/mpa-kuchyn.jpg" preload="none" playsinline aria-label="Video pro MPA stav: ukázka kuchyně na míru"></video><span class="tag">Realizace</span><button class="play" type="button" aria-label="Přehrát video: MPA stav"></button><figcaption><b>MPA stav</b><span>Ukázka kuchyně na míru</span></figcaption></figure>
-        <figure class="work reel vid"><video src="video/mpl-montazni-sada.mp4" poster="video/mpl-montazni-sada.jpg" preload="none" playsinline aria-label="Video pro MPL Stavebniny: montážní sada hmoždinek"></video><span class="tag">Produkt</span><button class="play" type="button" aria-label="Přehrát video: Montážní sada"></button><figcaption><b>Montážní sada</b><span>Produktové video s ukázkou montáže</span></figcaption></figure>
-        <figure class="work reel vid"><video src="video/sykorova.mp4" poster="video/sykorova.jpg" preload="none" playsinline aria-label="Video pro realitní makléřku Patricii Sýkorovou"></video><span class="tag">Osobní značka</span><button class="play" type="button" aria-label="Přehrát video: Patricie Sýkorová"></button><figcaption><b>Patricie Sýkorová</b><span>Osobní značka realitní makléřky</span></figcaption></figure>
-        <figure class="work wide shot"><picture><source type="image/webp" srcset="img/postera-640.webp 640w, img/postera-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 620px"><img src="img/postera-1280.jpg" srcset="img/postera-640.jpg 640w, img/postera-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 620px" alt="Úvodní stránka webu getpostera.cz" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b><a href="https://getpostera.cz" target="_blank" rel="noopener">getpostera.cz <span aria-hidden="true">↗</span></a></b><span>Web pro aplikaci na správu sociálních sítí</span></figcaption></figure>
-        <figure class="work wide shot"><picture><source type="image/webp" srcset="img/ebistro-640.webp 640w, img/ebistro-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 620px"><img src="img/ebistro-1280.jpg" srcset="img/ebistro-640.jpg 640w, img/ebistro-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 620px" alt="Úvodní stránka webu eBISTRO Místek" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b>eBISTRO Místek</b><span>Web bistra s týdenním menu a objednávkou online</span></figcaption></figure>
-        <figure class="work art"><picture><source type="image/webp" srcset="img/hq-husqvarna-pily-600.webp 600w, img/hq-husqvarna-pily-1200.webp 1200w" sizes="(max-width: 900px) 50vw, 300px"><img src="img/hq-husqvarna-pily-1200.jpg" srcset="img/hq-husqvarna-pily-600.jpg 600w, img/hq-husqvarna-pily-1200.jpg 1200w" sizes="(max-width: 900px) 50vw, 300px" alt="Příspěvek pro HQ Technik Ostrava: podzimní slevy na motorové pily Husqvarna" width="1200" height="1200" loading="lazy" decoding="async"></picture><figcaption><b>HQ Technik Ostrava</b><span>Podzimní akce na techniku Husqvarna</span></figcaption></figure>
-        <figure class="work art"><picture><source type="image/webp" srcset="img/hq-automower-600.webp 600w, img/hq-automower-1200.webp 1200w" sizes="(max-width: 900px) 50vw, 300px"><img src="img/hq-automower-1200.jpg" srcset="img/hq-automower-600.jpg 600w, img/hq-automower-1200.jpg 1200w" sizes="(max-width: 900px) 50vw, 300px" alt="Příspěvek pro HQ Technik Ostrava: Husqvarna Automower s prodlouženou zárukou 3 roky" width="1200" height="1200" loading="lazy" decoding="async"></picture><figcaption><b>Husqvarna Automower</b><span>Reklamní kampaň na prodlouženou záruku</span></figcaption></figure>
-        <div class="work wide cta-tile"><p class="cta-h">Chcete podobný obsah pro <span class="accent">svou firmu</span>?</p><p>Napište nám, co potřebujete. Ozveme se do dvou pracovních dnů.</p><a class="pill" href="#kontakt">Chci poptávku <span class="arr" aria-hidden="true">→</span></a></div>
+      <div class="pf">
+        <div class="pf-ch">
+          <div class="pf-ch-head"><span class="pf-no" aria-hidden="true">01</span><h3>Video a reels</h3><span class="label pf-count">4 videa</span></div>
+          <div class="works works-reels">
+          <figure class="work reel vid"><video src="video/mpl-jupol.mp4" poster="video/mpl-jupol.jpg" preload="none" playsinline aria-label="Video pro MPL Stavebniny: akce na barvu Jupol"></video><span class="tag">Akce</span><button class="play" type="button" aria-label="Přehrát video: MPL Stavebniny"></button><figcaption><b>MPL Stavebniny</b><span>Promo video na akční barvu Jupol</span></figcaption></figure>
+          <figure class="work reel vid"><video src="video/mpa-kuchyn-2.mp4" poster="video/mpa-kuchyn.jpg" preload="none" playsinline aria-label="Video pro MPA stav: ukázka kuchyně na míru"></video><span class="tag">Realizace</span><button class="play" type="button" aria-label="Přehrát video: MPA stav"></button><figcaption><b>MPA stav</b><span>Ukázka kuchyně na míru</span></figcaption></figure>
+          <figure class="work reel vid"><video src="video/mpl-montazni-sada.mp4" poster="video/mpl-montazni-sada.jpg" preload="none" playsinline aria-label="Video pro MPL Stavebniny: montážní sada hmoždinek"></video><span class="tag">Produkt</span><button class="play" type="button" aria-label="Přehrát video: Montážní sada"></button><figcaption><b>Montážní sada</b><span>Produktové video s ukázkou montáže</span></figcaption></figure>
+          <figure class="work reel vid"><video src="video/sykorova.mp4" poster="video/sykorova.jpg" preload="none" playsinline aria-label="Video pro realitní makléřku Patricii Sýkorovou"></video><span class="tag">Osobní značka</span><button class="play" type="button" aria-label="Přehrát video: Patricie Sýkorová"></button><figcaption><b>Patricie Sýkorová</b><span>Osobní značka realitní makléřky</span></figcaption></figure>
+          </div>
+        </div>
+        <div class="pf-ch">
+          <div class="pf-ch-head"><span class="pf-no" aria-hidden="true">02</span><h3>Weby</h3><span class="label pf-count">2 weby</span></div>
+          <div class="works works-webs">
+          <figure class="work wide shot"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>getpostera.cz</span></div><picture><source type="image/webp" srcset="img/postera-640.webp 640w, img/postera-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 620px"><img src="img/postera-1280.jpg" srcset="img/postera-640.jpg 640w, img/postera-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 620px" alt="Úvodní stránka webu getpostera.cz" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b><a href="https://getpostera.cz" target="_blank" rel="noopener">getpostera.cz <span aria-hidden="true">↗</span></a></b><span>Web pro aplikaci na správu sociálních sítí</span></figcaption></figure>
+          <figure class="work wide shot"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>eBISTRO Místek</span></div><picture><source type="image/webp" srcset="img/ebistro-640.webp 640w, img/ebistro-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 620px"><img src="img/ebistro-1280.jpg" srcset="img/ebistro-640.jpg 640w, img/ebistro-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 620px" alt="Úvodní stránka webu eBISTRO Místek" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b>eBISTRO Místek</b><span>Web bistra s týdenním menu a objednávkou online</span></figcaption></figure>
+          </div>
+        </div>
+        <div class="pf-ch">
+          <div class="pf-ch-head"><span class="pf-no" aria-hidden="true">03</span><h3>Grafika a kampaně</h3><span class="label pf-count">2 kampaně</span></div>
+          <div class="works works-arts">
+          <figure class="work art"><picture><source type="image/webp" srcset="img/hq-husqvarna-pily-600.webp 600w, img/hq-husqvarna-pily-1200.webp 1200w" sizes="(max-width: 900px) 50vw, 300px"><img src="img/hq-husqvarna-pily-1200.jpg" srcset="img/hq-husqvarna-pily-600.jpg 600w, img/hq-husqvarna-pily-1200.jpg 1200w" sizes="(max-width: 900px) 50vw, 300px" alt="Příspěvek pro HQ Technik Ostrava: podzimní slevy na motorové pily Husqvarna" width="1200" height="1200" loading="lazy" decoding="async"></picture><figcaption><b>HQ Technik Ostrava</b><span>Podzimní akce na techniku Husqvarna</span></figcaption></figure>
+          <figure class="work art"><picture><source type="image/webp" srcset="img/hq-automower-600.webp 600w, img/hq-automower-1200.webp 1200w" sizes="(max-width: 900px) 50vw, 300px"><img src="img/hq-automower-1200.jpg" srcset="img/hq-automower-600.jpg 600w, img/hq-automower-1200.jpg 1200w" sizes="(max-width: 900px) 50vw, 300px" alt="Příspěvek pro HQ Technik Ostrava: Husqvarna Automower s prodlouženou zárukou 3 roky" width="1200" height="1200" loading="lazy" decoding="async"></picture><figcaption><b>Husqvarna Automower</b><span>Reklamní kampaň na prodlouženou záruku</span></figcaption></figure>
+          <div class="work cta-tile"><p class="cta-h">Chcete podobný obsah pro <span class="accent">svou firmu</span>?</p><p>Napište nám, co potřebujete. Ozveme se do dvou pracovních dnů.</p><a class="pill" href="#kontakt">Chci poptávku <span class="arr" aria-hidden="true">→</span></a></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
