@@ -516,29 +516,18 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .fld input:user-invalid, .fld textarea:user-invalid { border-color: var(--rose-deep); }
 .svc-picks { border: 0; margin: 0; padding: 0; min-width: 0; }
 .svc-picks legend { margin-bottom: 8px; padding: 0; }
-.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.svc-picks label { position: relative; display: grid; }
-.svc-picks input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; z-index: 1; }
-/* Volba služby: karta s ikonkou, po zaškrtnutí růžová s fajfkou v rohu */
-.svc-picks label > span { position: relative; display: grid; justify-items: start; gap: 10px; padding: 12px 12px 11px; border-radius: 14px; background: var(--cream); border: 1.5px solid var(--latte-line); font: 600 0.82rem/1.2 var(--display); color: var(--ink); transition: background-color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
-.svc-picks .ico { width: 30px; height: 30px; padding: 6px; border-radius: 9px; background: var(--latte); fill: none; stroke: var(--mocha); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; transition: background-color .2s ease; }
-.svc-picks label > span::after { content: ""; position: absolute; top: 10px; right: 10px; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--latte-line); background: var(--cream) no-repeat center / 10px; transition: background-color .2s ease, border-color .2s ease; }
-.svc-picks label:hover > span { transform: translateY(-2px); box-shadow: 0 10px 20px -14px rgba(7, 13, 13, 0.5); }
-.svc-picks input:checked + span { background: color-mix(in srgb, var(--blush) 55%, var(--cream)); border-color: var(--rose-deep); }
-.svc-picks input:checked + span .ico { background: var(--cream); }
-.svc-picks input:checked + span::after { border-color: var(--ink); background-color: var(--ink); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3.2 3L11 1.5' fill='none' stroke='%23F5CBD7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
-.svc-picks input:focus-visible + span { outline: 2px solid var(--mocha); outline-offset: 2px; }
-.form-foot { display: grid; gap: 10px; }
-.form-foot p { font-size: 0.76rem; color: var(--ink-dim); }
-/* Odeslat: tmavá pilulka přes celou šířku, šipka v růžovém kolečku */
-.form-foot .pill { order: -1; width: 100%; justify-content: center; position: relative; padding: 17px 60px; font-size: 1rem; }
-.form-foot .pill .arr { position: absolute; right: 7px; top: 50%; translate: 0 -50%; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--blush); color: var(--ink); }
-.form-foot .pill:hover { transform: translateY(-2px); background: var(--mocha); box-shadow: 0 14px 26px -16px rgba(7, 13, 13, 0.8); }
-.form-foot .pill:hover .arr { transform: translateX(-3px) rotate(-30deg); }
+.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 16px; }
+/* Volba služby: obyčejné zaškrtávací políčko s popiskem */
+.svc-picks label { display: flex; align-items: center; gap: 8px; font: 400 0.9rem/1.3 var(--body); cursor: pointer; }
+.svc-picks input { flex: none; width: 18px; height: 18px; margin: 0; accent-color: var(--mocha); cursor: pointer; }
+.form-foot { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
+.form-foot p { flex: 1 1 220px; font-size: 0.76rem; color: var(--ink-dim); }
+.form-foot .pill { padding: 0.9em 1.4em; font-size: 0.95rem; }
 .form-status { font: 500 0.9rem/1.5 var(--body); color: var(--mocha); }
 @media (max-width: 640px) {
   .inquiry { grid-template-columns: 1fr; gap: 14px; padding: 20px; border-radius: 18px; }
   .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .form-foot .pill { width: 100%; justify-content: center; }
 }
 
 /* Patička */
@@ -810,12 +799,12 @@ footer :focus-visible { outline-color: var(--blush); }
         <fieldset class="svc-picks full">
           <legend>S čím potřebujete pomoct</legend>
           <div class="svc-grid">
-            <label><input type="checkbox" id="f-video" name="video" value="ano"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="M16 10.5l5-3v9l-5-3z"/></svg>Video a reels</span></label>
-            <label><input type="checkbox" id="f-posts" name="prispevky" value="ano"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 15l4.5-4.5 4 4L15 12l5 5"/><circle cx="15.5" cy="8.5" r="1.3"/></svg>Tvorba příspěvků</span></label>
-            <label><input type="checkbox" id="f-brand" name="grafika" value="ano"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-1.3-1-1.6-1-2.6 0-.9.7-1.5 1.7-1.5H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.1"/><circle cx="10" cy="7" r="1.1"/><circle cx="14.5" cy="7" r="1.1"/></svg>Grafika a značka</span></label>
-            <label><input type="checkbox" id="f-web" name="web" value="ano"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M3 9h18"/><circle cx="6.3" cy="6.8" r=".6"/><circle cx="8.6" cy="6.8" r=".6"/></svg>Web</span></label>
-            <label><input type="checkbox" id="f-ads" name="kampane" value="ano"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4a1 1 0 0 0 1 1h2l6 4V5L7 9H5a1 1 0 0 0-1 1z"/><path d="M17 9a4 4 0 0 1 0 6M19.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>Kampaně</span></label>
-            <label><input type="checkbox" id="f-unsure" name="nevim" value="ano"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2-2.4 3.6"/><circle cx="12" cy="17" r=".6"/></svg>Zatím nevím</span></label>
+            <label><input type="checkbox" id="f-video" name="video" value="ano"><span>Video a reels</span></label>
+            <label><input type="checkbox" id="f-posts" name="prispevky" value="ano"><span>Tvorba příspěvků</span></label>
+            <label><input type="checkbox" id="f-brand" name="grafika" value="ano"><span>Grafika a značka</span></label>
+            <label><input type="checkbox" id="f-web" name="web" value="ano"><span>Web</span></label>
+            <label><input type="checkbox" id="f-ads" name="kampane" value="ano"><span>Kampaně</span></label>
+            <label><input type="checkbox" id="f-unsure" name="nevim" value="ano"><span>Zatím nevím</span></label>
           </div>
         </fieldset>
         <div class="fld full"><label for="f-msg">Zpráva</label><textarea id="f-msg" name="zprava" required placeholder="Pár vět o firmě a o tom, co chcete vyřešit."></textarea></div>
