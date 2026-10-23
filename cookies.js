@@ -75,9 +75,9 @@
       box.setAttribute('role', 'dialog');
       box.setAttribute('aria-labelledby', 'cc-title');
       box.innerHTML =
-        '<h2 id="cc-title">Můžeme měřit <span>návštěvnost?</span></h2>' +
+        '<h2 id="cc-title">Schválíte nám <span>cookies?</span></h2>' +
         '<p>Pomocí Google Analytics zjišťujeme, které části webu lidi čtou, abychom ho mohli zlepšovat. Tyto cookies použijeme jen s vaším souhlasem a nikdy pro reklamu. Více v <a href="/obchodni-podminky.html#cookies">podmínkách</a>.</p>' +
-        '<div class="cc-row"><button type="button" class="cc-no">Jen nezbytné</button><button type="button" class="cc-yes">Povolit analytiku</button></div>';
+        '<div class="cc-row"><button type="button" class="cc-no">Jen nezbytné</button><button type="button" class="cc-yes">Schválit cookies</button></div>';
       box.querySelector('.cc-yes').addEventListener('click', function () { choose(true); });
       box.querySelector('.cc-no').addEventListener('click', function () { choose(false); });
       document.body.appendChild(box);
