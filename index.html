@@ -516,19 +516,27 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .fld input:user-invalid, .fld textarea:user-invalid { border-color: var(--rose-deep); }
 .svc-picks { border: 0; margin: 0; padding: 0; min-width: 0; }
 .svc-picks legend { margin-bottom: 8px; padding: 0; }
-.svc-grid { display: flex; flex-wrap: wrap; gap: 6px; }
-.svc-picks label { position: relative; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.svc-picks label { position: relative; display: grid; }
 .svc-picks input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
-.svc-picks label > span { display: inline-block; font: 500 0.85rem/1 var(--body); padding: 0.65em 0.95em; border-radius: 999px; border: 1.5px solid var(--latte-line); transition: background-color .15s ease, border-color .15s ease; }
-.svc-picks label:hover > span { border-color: color-mix(in srgb, var(--ink) 30%, var(--cream)); }
-.svc-picks input:checked + span { background: var(--blush); border-color: var(--blush); }
+/* Volba služby: obdélníkové tlačítko s plusem, po zaškrtnutí tmavé s fajfkou */
+.svc-picks label > span { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 500 0.85rem/1.2 var(--body); padding: 10px 12px; border-radius: 10px; background: var(--latte); border: 1.5px solid transparent; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+.svc-picks label > span::after { content: "+"; flex: none; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font: 600 0.9rem/1 var(--body); color: var(--ink-dim); background: var(--cream); transition: background-color .15s ease, color .15s ease; }
+.svc-picks label:hover > span { border-color: var(--latte-line); }
+.svc-picks input:checked + span { background: var(--ink); color: var(--cream); }
+.svc-picks input:checked + span::after { content: "✓"; font-size: 0.7rem; background: var(--blush); color: var(--ink); }
 .svc-picks input:focus-visible + span { outline: 2px solid var(--mocha); outline-offset: 2px; }
-.form-foot { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
-.form-foot p { flex: 1 1 220px; font-size: 0.76rem; color: var(--ink-dim); }
+.form-foot { display: grid; gap: 10px; }
+.form-foot p { font-size: 0.76rem; color: var(--ink-dim); }
+/* Odeslat: široké růžové tlačítko, hranaté jako pole formuláře */
+.form-foot .pill { order: -1; width: 100%; justify-content: space-between; padding: 14px 18px; border-radius: 12px; background: var(--blush); color: var(--ink); font-size: 0.98rem; }
+.form-foot .pill .arr { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--cream); }
+.form-foot .pill:hover { transform: none; background: var(--ink); color: var(--cream); }
+.form-foot .pill:hover .arr { background: var(--blush); color: var(--ink); transform: translateX(3px); }
 .form-status { font: 500 0.9rem/1.5 var(--body); color: var(--mocha); }
 @media (max-width: 640px) {
   .inquiry { grid-template-columns: 1fr; gap: 14px; padding: 20px; border-radius: 18px; }
-  .form-foot .pill { width: 100%; justify-content: center; }
+  .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* Patička */
