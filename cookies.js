@@ -1,8 +1,9 @@
 /* Cookies: Google Analytics 4 se souhlasem (Google Consent Mode v2).
-   Bez souhlasu se gtag.js vůbec nenačte. Volba se pamatuje 12 měsíců,
+   gtag.js se načte vždy, ale bez souhlasu má analytics_storage 'denied',
+   takže neukládá cookies a Googlu posílá jen anonymní signály. Volba se pamatuje 12 měsíců,
    změnit ji jde přes odkaz s atributem data-cookies (např. v patičce). */
 (function () {
-  var GA_ID = 'G-N7H6KXFF0D';
+  var GA_IDS = ['G-ZRWQ2SS1BN', 'G-N7H6KXFF0D'];
   var KEY = 'solv-cookies';
   var MAX_AGE = 365 * 24 * 60 * 60 * 1000;
 
@@ -29,17 +30,6 @@
     try { localStorage.setItem(KEY, JSON.stringify({ analytics: analytics, at: Date.now() })); } catch (e) {}
   }
 
-  var loaded = false;
-  function loadGA() {
-    if (loaded) return;
-    loaded = true;
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
-    gtag('js', new Date());
-    gtag('config', GA_ID);
-  }
   // Po odvolání souhlasu smaže cookies _ga a _ga_*
   function clearGA() {
     var host = location.hostname.replace(/^www\./, '');
@@ -54,7 +44,7 @@
 
   function apply(analytics) {
     gtag('consent', 'update', { analytics_storage: analytics ? 'granted' : 'denied' });
-    if (analytics) loadGA(); else clearGA();
+    if (!analytics) clearGA();
   }
 
   var css = '' +
@@ -101,7 +91,14 @@
   }
 
   var stored = read();
-  if (stored) { if (stored.analytics) apply(true); }
+  if (stored && stored.analytics) gtag('consent', 'update', { analytics_storage: 'granted' });
+
+  var tag = document.createElement('script');
+  tag.async = true;
+  tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_IDS[0];
+  document.head.appendChild(tag);
+  gtag('js', new Date());
+  GA_IDS.forEach(function (id) { gtag('config', id); });
 
   function init() {
     if (!stored) show();
