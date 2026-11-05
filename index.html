@@ -354,6 +354,10 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .work.shot > picture { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
 .work.shot > picture > img { position: static; display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: auto; }
 .work.shot figcaption { padding: 16px 20px 20px; }
+/* Odkaz v popisku roztažený přes celou kartu: klik na screenshot otevře web */
+.work.shot figcaption a::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+.work.shot:has(a:focus-visible) { outline: 2px solid var(--mocha); outline-offset: 4px; }
+.work.shot figcaption a:focus-visible { outline: none; }
 
 /* 03 Grafika: kartičky jako polaroid, vedle velká výzva */
 .works-arts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px clamp(20px, 3vw, 40px); align-items: start; }
