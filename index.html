@@ -340,12 +340,14 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .work.vid.on .tag, .work.vid.on .play, .work.vid.on figcaption, .work.vid.on::after { opacity: 0; visibility: hidden; }
 .work.vid.on > video { z-index: 3; }
 
-/* 02 Weby: okno prohlížeče, druhé posunuté a natočené */
-.works-webs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); padding-bottom: 40px; }
+/* 02 Weby: okna prohlížeče, prostřední posunuté a natočené */
+.works-webs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); padding-bottom: 40px; }
 .work.shot { padding: 0; background: var(--cream); color: var(--ink); border-radius: 20px; box-shadow: 0 0 0 1.5px var(--latte-line), 0 40px 70px -36px color-mix(in srgb, var(--mocha) 85%, transparent); justify-content: flex-start; transform: rotate(-1deg); transition: transform .3s ease; }
 .work.shot + .work.shot { transform: translateY(40px) rotate(1.2deg); }
 .work.shot:hover { transform: translateY(-6px) rotate(0); }
 .work.shot + .work.shot:hover { transform: translateY(34px) rotate(0); }
+.work.shot + .work.shot + .work.shot { transform: translateY(8px) rotate(-1.6deg); }
+.work.shot + .work.shot + .work.shot:hover { transform: translateY(2px) rotate(0); }
 .browser-bar { display: flex; align-items: center; gap: 7px; padding: 12px 14px; background: var(--latte); }
 .browser-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--rose); flex: none; }
 .browser-bar i:nth-child(2) { background: var(--blush); }
@@ -354,6 +356,10 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .work.shot > picture { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
 .work.shot > picture > img { position: static; display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: auto; }
 .work.shot figcaption { padding: 16px 20px 20px; }
+/* Odkaz v popisku roztažený přes celou kartu: klik na screenshot otevře web */
+.work.shot figcaption a::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+.work.shot:has(a:focus-visible) { outline: 2px solid var(--mocha); outline-offset: 4px; }
+.work.shot figcaption a:focus-visible { outline: none; }
 
 /* 03 Grafika: kartičky jako polaroid, vedle velká výzva */
 .works-arts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px clamp(20px, 3vw, 40px); align-items: start; }
@@ -612,7 +618,7 @@ footer :focus-visible { outline-color: var(--blush); }
   .works-reels.swipe > .work.reel { flex-basis: 58%; margin: 6px 0; }
   .work.reel:nth-child(n), .work.reel:nth-child(n):hover, .work.reel:nth-child(n).on { transform: none; }
   .works-webs.swipe > .work.shot { flex-basis: 86%; }
-  .work.shot + .work.shot, .work.shot:hover, .work.shot + .work.shot:hover { transform: none; }
+  .work.shot + .work.shot, .work.shot:hover, .work.shot + .work.shot:hover, .work.shot + .work.shot + .work.shot, .work.shot + .work.shot + .work.shot:hover { transform: none; }
   .works-arts.swipe { align-items: stretch; }
   .works-arts.swipe > .work.art { flex-basis: 64%; }
   .work.art:nth-child(n), .work.art:hover { transform: none; }
@@ -785,10 +791,11 @@ footer :focus-visible { outline-color: var(--blush); }
           </div>
         </div>
         <div class="pf-ch">
-          <div class="pf-ch-head"><span class="pf-no" aria-hidden="true">02</span><h3>Weby</h3><span class="label pf-count">2 weby</span></div>
+          <div class="pf-ch-head"><span class="pf-no" aria-hidden="true">02</span><h3>Weby</h3><span class="label pf-count">3 weby</span></div>
           <div class="works works-webs swipe" aria-label="Weby">
-          <figure class="work wide shot"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>getpostera.cz</span></div><picture><source type="image/webp" srcset="img/postera-640.webp 640w, img/postera-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 620px"><img src="img/postera-1280.jpg" srcset="img/postera-640.jpg 640w, img/postera-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 620px" alt="Úvodní stránka webu getpostera.cz" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b><a href="https://getpostera.cz" target="_blank" rel="noopener">getpostera.cz <span aria-hidden="true">↗</span></a></b><span>Web pro aplikaci na správu sociálních sítí</span></figcaption></figure>
-          <figure class="work wide shot"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>e-bistro.cz</span></div><picture><source type="image/webp" srcset="img/ebistro-640.webp 640w, img/ebistro-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 620px"><img src="img/ebistro-1280.jpg" srcset="img/ebistro-640.jpg 640w, img/ebistro-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 620px" alt="Úvodní stránka webu eBISTRO Místek" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b><a href="https://www.e-bistro.cz" target="_blank" rel="noopener">eBISTRO Místek <span aria-hidden="true">↗</span></a></b><span>Web bistra s týdenním menu a objednávkou online</span></figcaption></figure>
+          <figure class="work wide shot"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>getpostera.cz</span></div><picture><source type="image/webp" srcset="img/postera-640.webp 640w, img/postera-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 420px"><img src="img/postera-1280.jpg" srcset="img/postera-640.jpg 640w, img/postera-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 420px" alt="Úvodní stránka webu getpostera.cz" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b><a href="https://getpostera.cz" target="_blank" rel="noopener">getpostera.cz <span aria-hidden="true">↗</span></a></b><span>Web pro aplikaci na správu sociálních sítí</span></figcaption></figure>
+          <figure class="work wide shot"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>e-bistro.cz</span></div><picture><source type="image/webp" srcset="img/ebistro-640.webp 640w, img/ebistro-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 420px"><img src="img/ebistro-1280.jpg" srcset="img/ebistro-640.jpg 640w, img/ebistro-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 420px" alt="Úvodní stránka webu eBISTRO Místek" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b><a href="https://www.e-bistro.cz" target="_blank" rel="noopener">eBISTRO Místek <span aria-hidden="true">↗</span></a></b><span>Web bistra s týdenním menu a objednávkou online</span></figcaption></figure>
+          <figure class="work wide shot"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>adamstarovic.cz</span></div><picture><source type="image/webp" srcset="img/starovic-640.webp 640w, img/starovic-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 420px"><img src="img/starovic-1280.jpg" srcset="img/starovic-640.jpg 640w, img/starovic-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 420px" alt="Úvodní stránka webu adamstarovic.cz realitního makléře Adama Staroviče" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b><a href="https://adamstarovic.cz" target="_blank" rel="noopener">adamstarovic.cz <span aria-hidden="true">↗</span></a></b><span>Web realitního makléře RE/MAX Komfort v Olomouci</span></figcaption></figure>
           </div>
         </div>
         <div class="pf-ch">
