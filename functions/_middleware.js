@@ -1,6 +1,6 @@
-// DEV MÓD: celý web dočasně ukazuje stránku „Web ladíme“ s kódem 503 (údržba).
+// DEV MÓD (Cloudflare Pages): celý web dočasně ukazuje stránku „Web ladíme“ s kódem 503 (údržba).
 // Google stránky z vyhledávání nevyřadí, jen se vrátí později (Retry-After).
-// Vypnutí dev módu: smazat tento soubor a nasadit.
+// Vypnutí dev módu: smazat tento soubor (functions/_middleware.js) a nasadit.
 
 const html = `<!doctype html>
 <html lang="cs">
@@ -38,8 +38,11 @@ p { margin: 0 0 28px; color: #5c4f4b; }
 </body>
 </html>`;
 
-export default () =>
-  new Response(html, {
+export async function onRequest(context) {
+  const { pathname } = new URL(context.request.url);
+  // Ikona webu zůstává dostupná, aby se ukázala i na stránce údržby
+  if (pathname === "/favicon.svg") return context.next();
+  return new Response(html, {
     status: 503,
     headers: {
       "content-type": "text/html; charset=utf-8",
@@ -47,5 +50,4 @@ export default () =>
       "cache-control": "no-store",
     },
   });
-
-export const config = { path: "/*", excludedPath: ["/favicon.svg"] };
+}
