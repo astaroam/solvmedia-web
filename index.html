@@ -30,7 +30,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://solvmedia.cz/#org", "name": "Solv Media", "alternateName": ["Solvmedia", "SolvMedia", "Solv", "solv.media", "solvmedia.cz", "Solve Media", "Solvemedia", "Solf Media", "Solfmedia", "Solw Media", "Sólv Media"], "url": "https://solvmedia.cz/", "logo": {"@type": "ImageObject", "@id": "https://solvmedia.cz/#logo", "url": "https://solvmedia.cz/img/icon-512.png", "width": 512, "height": 512, "caption": "Solv Media"}, "image": "https://solvmedia.cz/img/og-image.jpg", "description": "Marketingová agentura Solv Media. Natáčíme reels a videa, tvoříme příspěvky a grafiku, stavíme weby a spravujeme reklamy Meta Ads. Napište si o nabídku.", "email": "info@solvmedia.cz", "telephone": "+420776120447", "identifier": {"@type": "PropertyValue", "propertyID": "IČO", "value": "29745578"}, "sameAs": ["https://instagram.com/solv.media/"], "areaServed": [{"@type": "City", "name": "Olomouc"}, {"@type": "City", "name": "Ostrava"}, {"@type": "City", "name": "Frýdek-Místek"}, {"@type": "AdministrativeArea", "name": "Moravskoslezský kraj"}, {"@type": "AdministrativeArea", "name": "Olomoucký kraj"}, {"@type": "Country", "name": "Česko"}], "knowsAbout": ["tvorba videí", "reels", "TikTok", "správa sociálních sítí", "grafický design", "tvorba webů", "Meta Ads", "online marketing"], "founder": [{"@type": "Person", "name": "Adam", "jobTitle": "Spoluzakladatel"}, {"@type": "Person", "name": "Veronika", "jobTitle": "Spoluzakladatelka"}], "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "email": "info@solvmedia.cz", "telephone": "+420776120447", "availableLanguage": "cs"}, "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Video a reels", "description": "Námět, natáčení a střih videí pro reels, TikTok a stories.", "url": "https://solvmedia.cz/video"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tvorba příspěvků", "description": "Plán obsahu, texty, posty a karusely na sociální sítě.", "url": "https://solvmedia.cz/socialni-site"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Grafika a značka", "description": "Logo, brand kit, šablony na sítě a tiskoviny.", "url": "https://solvmedia.cz/grafika"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tvorba webů", "description": "Weby a landing page na míru včetně textů a základního SEO.", "url": "https://solvmedia.cz/tvorba-webu"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kampaně Meta Ads", "description": "Reklama na Facebooku a Instagramu s jasným rozpočtem a měsíčním reportem.", "url": "https://solvmedia.cz/meta-ads"}}], "slogan": "Obsah, který nikdo nepřeskočí.", "address": {"@type": "PostalAddress", "addressLocality": "Olomouc", "addressRegion": "Olomoucký kraj", "addressCountry": "CZ"}}, {"@type": "WebSite", "@id": "https://solvmedia.cz/#web", "url": "https://solvmedia.cz/", "name": "Solv Media", "alternateName": ["Solvmedia", "solvmedia.cz", "Solv"], "inLanguage": "cs", "publisher": {"@id": "https://solvmedia.cz/#org"}}, {"@type": "WebPage", "@id": "https://solvmedia.cz/#webpage", "url": "https://solvmedia.cz/", "name": "Solv Media – marketingová agentura | Tvorba webů, videa, grafika a Meta Ads", "description": "Marketingová agentura Solv Media z Olomouce: tvorba webů, natáčení videí a reels, grafika, správa sociálních sítí a reklama Meta Ads. Olomouc, Ostrava a Moravskoslezský kraj.", "inLanguage": "cs", "isPartOf": {"@id": "https://solvmedia.cz/#web"}, "about": {"@id": "https://solvmedia.cz/#org"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://solvmedia.cz/img/og-image.jpg", "width": 1200, "height": 630}}]}</script>
 <meta name="theme-color" content="#FFF7EC">
 <script src="/cookies.js"></script>
-<script src="/nabor.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap">
@@ -192,6 +191,12 @@ header.site.open .menu-btn i::before { content: ""; position: absolute; left: 0;
 .screen-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; pointer-events: none; }
 .screen::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, color-mix(in srgb, var(--noir) 55%, transparent) 0%, transparent 28%, color-mix(in srgb, var(--noir) 25%, transparent) 50%, transparent 66%, color-mix(in srgb, var(--noir) 70%, transparent) 100%); }
 .screen > :not(.screen-bg) { position: relative; z-index: 1; }
+/* Nábor: místo videa je v telefonu náborový „reel“ na barevném pozadí */
+.screen.nabor::before { display: none; }
+.caption-wrap { align-self: center; display: grid; justify-items: center; gap: 12px; text-align: center; min-height: 0; }
+.nb-tag { margin: 0; padding: 6px 12px; border-radius: 999px; background: var(--cream); color: var(--ink); font: 600 0.7rem/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase; }
+.nb-roles { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 6px; }
+.nb-roles li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: color-mix(in srgb, var(--noir) 28%, transparent); border: 1px solid var(--cream-line); font: 600 0.74rem/1 var(--body); white-space: nowrap; }
 .caption span:not(.lit) { text-shadow: 0 1px 12px color-mix(in srgb, var(--noir) 60%, transparent); }
 .bars { display: flex; gap: 4px; }
 .bars i { flex: 1; height: 3px; border-radius: 3px; background: color-mix(in srgb, var(--cream) 30%, transparent); overflow: hidden; position: relative; }
@@ -699,20 +704,19 @@ footer :focus-visible { outline-color: var(--blush); }
       <span class="chip c2" aria-hidden="true"><i></i>Meta Ads</span>
       <span class="chip c3" aria-hidden="true"><i></i>Grafika a weby</span>
       <div class="phone">
-        <div class="screen">
-          <video class="screen-bg" id="hero-video" src="video/hero-kuchyn-2.mp4" poster="video/hero-kuchyn-1.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+        <div class="screen nabor">
           <div class="bars" id="bars" aria-hidden="true"><i class="on"></i><i class="run"></i><i></i><i></i></div>
           <div class="acct"><span class="av" aria-hidden="true"><span class="logo">sol<svg aria-hidden="true"><use href="#tick"/></svg></span></span><span aria-hidden="true">solv.media</span><a class="follow" href="https://instagram.com/solv.media/" target="_blank" rel="noopener" aria-label="Sledovat Solv Media na Instagramu">Sledovat</a></div>
-          <div class="caption" id="caption" aria-hidden="true"><span>Tohle</span> <span>video</span> <span>natočíme</span> <span>a</span> <span>sestříháme</span> <span>za</span> <span class="lit">vás.</span></div>
+          <div class="caption-wrap"><p class="nb-tag">Rozšiřujeme tým</p><div class="caption" id="caption"><span>Hledáme</span> <span>tvůrce</span> <span class="lit">obsahu.</span></div><ul class="nb-roles"><li><span aria-hidden="true">🎥</span>Videotvorba</li><li><span aria-hidden="true">📷</span>Fotky</li></ul></div>
           <div class="reel-foot">
-            <p aria-hidden="true"><b>@solv.media</b>Námět, natáčení, střih a titulky.</p>
+            <p><b>@solv.media</b>Točíš a fotíš? Ozvi se na info@solvmedia.cz.</p>
             <div class="icons">
               <button type="button" class="like" id="like" aria-pressed="false" aria-label="To se mi líbí"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span id="like-n" aria-hidden="true">1 248</span></button>
               <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4A8 8 0 1 1 20 12z"/></svg>36</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4L3 11l7 2 2 7z"/></svg>
             </div>
           </div>
-          <a class="reel-cta" href="#portfolio">Zobrazit portfolio <span class="arr" aria-hidden="true">→</span></a>
+          <a class="reel-cta" href="mailto:info@solvmedia.cz?subject=N%C3%A1bor%3A%20tvorba%20obsahu">Chci do týmu <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
       </div>
@@ -952,10 +956,6 @@ footer :focus-visible { outline-color: var(--blush); }
 <script>
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Video v telefonu v úvodu: při omezení animací zůstane jen úvodní snímek
-  var heroVideo = document.getElementById('hero-video');
-  if (heroVideo && reduce) { heroVideo.removeAttribute('autoplay'); heroVideo.pause(); }
 
   // Titulky v telefonu se rozsvěcují slovo po slově jako u reelu
   var words = Array.prototype.slice.call(document.querySelectorAll('#caption span'));
