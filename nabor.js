@@ -51,7 +51,7 @@
     '.nb-x { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 50%; cursor: pointer; background: var(--latte, #F2E8DD); color: var(--ink, #1A1513); transition: background-color .2s ease; }' +
     '.nb-x:hover { background: var(--blush, #F5CBD7); }' +
     '.nb-x svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }' +
-    '.nb-box:focus, .nb-box:focus-visible { outline: none; }' +
+    '.nb .nb-box:focus, .nb .nb-box:focus-visible { outline: none; }' +
     '.nb :focus-visible { outline: 3px solid var(--mocha, #442F2A); outline-offset: 3px; }' +
     '@keyframes nb-fade { from { opacity: 0; } }' +
     '@keyframes nb-in { from { opacity: 0; transform: translateY(18px) scale(.97); } }' +
