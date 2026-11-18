@@ -85,7 +85,7 @@ header.site nav.right { justify-content: flex-end; }
 .rec::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #E5484D; }
 
 .band { position: relative; color: var(--paper); text-align: center; overflow: hidden; background: var(--ink); }
-.band-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: brightness(.5); }
+.band-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; filter: brightness(.5); }
 .band .wrap { position: relative; padding: 140px 0; max-width: 840px; }
 .band .h-caps { font-size: clamp(1.9rem, 4vw, 3.2rem); }
 .band p { max-width: 540px; margin: 22px auto 34px; color: #EDE9E6; }
