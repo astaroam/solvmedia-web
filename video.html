@@ -18,7 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://solvmedia.cz/video#webpage", "url": "https://solvmedia.cz/video", "name": "Tvorba videí a reels Olomouc a Ostrava | Solv Media", "description": "Tvorba firemních videí, reels a TikToků. Námět, scénář, natáčení, střih s titulky a video kampaně na sociální sítě. Natáčíme v Olomouci, Ostravě a okolí.", "inLanguage": "cs", "isPartOf": {"@id": "https://solvmedia.cz/#web"}, "about": {"@id": "https://solvmedia.cz/video#service"}, "breadcrumb": {"@id": "https://solvmedia.cz/video#breadcrumb"}}, {"@type": "Service", "@id": "https://solvmedia.cz/video#service", "name": "Tvorba videí a reels", "serviceType": "Videoprodukce", "description": "Jsme video tvůrci pro firmy. Vymyslíme námět, natočíme u vás nebo z vašich záběrů a sestříháme s titulky a hudbou. Videa na reels, TikTok, stories i do video kampaní.", "url": "https://solvmedia.cz/video", "provider": {"@id": "https://solvmedia.cz/#org"}, "areaServed": [{"@type": "City", "name": "Olomouc"}, {"@type": "City", "name": "Ostrava"}, {"@type": "City", "name": "Frýdek-Místek"}, {"@type": "AdministrativeArea", "name": "Moravskoslezský kraj"}, {"@type": "AdministrativeArea", "name": "Olomoucký kraj"}, {"@type": "Country", "name": "Česko"}], "availableLanguage": "cs"}, {"@type": "BreadcrumbList", "@id": "https://solvmedia.cz/video#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Solv Media", "item": "https://solvmedia.cz/"}, {"@type": "ListItem", "position": 2, "name": "Video a reels", "item": "https://solvmedia.cz/video"}]}, {"@type": "FAQPage", "@id": "https://solvmedia.cz/video#faq", "mainEntity": [{"@type": "Question", "name": "Kolik stojí natočení videa?", "acceptedAnswer": {"@type": "Answer", "text": "Cena záleží na počtu videí a natáčecích dnů. Nejvýhodnější je natočit víc videí najednou. Konkrétní nabídku pošleme po krátkém hovoru."}}, {"@type": "Question", "name": "Přijedete natáčet k nám?", "acceptedAnswer": {"@type": "Answer", "text": "Ano, natáčíme přímo u vás. Pokud máte vlastní záběry z telefonu, umíme z nich udělat hotové video."}}, {"@type": "Question", "name": "Jak dlouho trvá, než je video hotové?", "acceptedAnswer": {"@type": "Answer", "text": "Termín domluvíme předem. Po natáčení pošleme první verzi ke schválení a zapracujeme vaše připomínky."}}, {"@type": "Question", "name": "Hodí se videa i do reklamy?", "acceptedAnswer": {"@type": "Answer", "text": "Ano. Krátká vertikální videa patří k nejúspěšnějším formátům reklamy na Facebooku a Instagramu a rovnou je umíme použít v kampani."}}]}]}</script>
-<meta name="theme-color" content="#FFF7EC">
+<meta name="theme-color" content="#D5D2CB">
 <script src="/cookies.js"></script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/img/icon-192.png" type="image/png" sizes="192x192">
@@ -28,16 +28,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap">
 <style>
 :root {
-  --cream: #FFF7EC;
-  --blush: #F5CBD7;
-  --brown: #442F2A;
-  --noir: #070D0D;
+  --cream: #D5D2CB;
+  --blush: #C6BEB5;
+  --taupe: #9C8D7C;
+  --brown: color-mix(in srgb, var(--taupe) 40%, var(--noir));
+  --noir: #161212;
   --ink: color-mix(in srgb, var(--brown) 30%, var(--noir));
   --ink-dim: color-mix(in srgb, var(--ink) 70%, var(--cream));
   --latte: color-mix(in srgb, var(--cream) 90%, var(--brown));
   --latte-line: color-mix(in srgb, var(--brown) 16%, transparent);
   --powder: color-mix(in srgb, var(--blush) 45%, var(--cream));
-  --rose-deep: color-mix(in srgb, var(--blush) 45%, var(--brown));
+  --rose-deep: color-mix(in srgb, var(--taupe) 80%, var(--brown));
   --mocha-soft: color-mix(in srgb, var(--brown) 82%, var(--blush));
   --cream-dim: color-mix(in srgb, var(--cream) 74%, var(--brown));
   --display: "Poppins", ui-sans-serif, system-ui, sans-serif;
@@ -71,7 +72,7 @@ footer a { text-decoration: none; display: inline-block; padding-block: 8px; }
 footer a:hover { color: var(--cream); }
 footer .links { display: flex; flex-wrap: wrap; gap: 0 24px; }
 footer :focus-visible { outline-color: var(--blush); }
-.intro h1 .accent { background: linear-gradient(transparent 60%, var(--blush) 60%, var(--blush) 92%, transparent 92%); padding-inline: 0.04em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.intro h1 .accent { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--taupe) 70%, var(--blush)) 60%, color-mix(in srgb, var(--taupe) 70%, var(--blush)) 92%, transparent 92%); padding-inline: 0.04em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .intro .lead { margin: 0 0 28px; }
 .pill { display: inline-flex; align-items: center; gap: 0.6em; min-height: 48px; padding: 0 1.6em; border-radius: 999px; background: var(--ink); color: var(--cream); font: 600 1rem/1 var(--display); text-decoration: none; }
 .pill span { color: var(--blush); }
