@@ -111,6 +111,16 @@ body { background: var(--paper); color: var(--noir); font-size: 15px; line-heigh
 .toc a:hover { color: var(--wine); }
 footer { background: var(--noir); color: var(--stone); }
 footer a:hover { color: var(--paper); }
+
+/* ===== Ladění pro všechna zařízení ===== */
+@media (min-width: 1600px) { .wrap { max-width: 1400px; } body { font-size: 16px; } }
+@media (max-width: 820px) {
+  body { font-size: 16px; }
+  .pill, .back { font-size: 12px; min-height: 48px; }
+  footer a { padding-block: 12px; min-height: 44px; display: inline-flex; align-items: center; }
+  nav[aria-label] a, .crumbs a { display: inline-block; padding-block: 12px; }
+  .faq summary { min-height: 52px; align-items: center; }
+}
 </style>
 </head>
 <body>
