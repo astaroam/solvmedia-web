@@ -14,28 +14,29 @@
 <meta property="og:url" content="https://solvmedia.cz/obchodni-podminky">
 <meta property="og:image" content="https://solvmedia.cz/img/og-image.jpg">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://solvmedia.cz/obchodni-podminky#webpage", "url": "https://solvmedia.cz/obchodni-podminky", "name": "Obchodní podmínky | Solv Media", "inLanguage": "cs", "isPartOf": {"@id": "https://solvmedia.cz/#web"}, "publisher": {"@id": "https://solvmedia.cz/#org"}, "breadcrumb": {"@id": "https://solvmedia.cz/obchodni-podminky#breadcrumb"}}, {"@type": "BreadcrumbList", "@id": "https://solvmedia.cz/obchodni-podminky#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Solv Media", "item": "https://solvmedia.cz/"}, {"@type": "ListItem", "position": 2, "name": "Obchodní podmínky", "item": "https://solvmedia.cz/obchodni-podminky"}]}]}</script>
-<meta name="theme-color" content="#FFF7EC">
+<meta name="theme-color" content="#F3F1ED">
 <script src="/cookies.js"></script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/img/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap">
 <style>
 :root {
-  --cream: #FFF7EC;
-  --blush: #F5CBD7;
-  --brown: #442F2A;
-  --noir: #070D0D;
-  --ink: color-mix(in srgb, var(--brown) 30%, var(--noir));
-  --ink-dim: color-mix(in srgb, var(--ink) 70%, var(--cream));
-  --latte: color-mix(in srgb, var(--cream) 90%, var(--brown));
-  --latte-line: color-mix(in srgb, var(--brown) 16%, transparent);
-  --powder: color-mix(in srgb, var(--blush) 45%, var(--cream));
-  --rose-deep: color-mix(in srgb, var(--blush) 45%, var(--brown));
-  --mocha-soft: color-mix(in srgb, var(--brown) 82%, var(--blush));
-  --cream-dim: color-mix(in srgb, var(--cream) 74%, var(--brown));
+  --noir: #161212; --taupe: #9C8D7C; --stone: #C6BEB5; --mist: #D5D2CB; --paper: #F3F1ED; --white: #FFFFFF; --wine: #6E2B2B; --wine-d: #561F1F; --muted: #5D5348;
+  --font-serif: 'Cormorant Garamond', Georgia, serif; --font-logo: 'Poppins', Arial, sans-serif;
+  --cream: var(--paper);
+  --blush: var(--mist);
+  --brown: var(--noir);
+  --ink: var(--noir);
+  --ink-dim: var(--muted);
+  --latte: var(--white);
+  --latte-line: color-mix(in srgb, var(--stone) 70%, transparent);
+  --powder: var(--mist);
+  --rose-deep: var(--wine);
+  --mocha-soft: var(--muted);
+  --cream-dim: var(--stone);
   --display: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --body: "Inter", ui-sans-serif, system-ui, sans-serif;
   --gl: max(20px, env(safe-area-inset-left, 0px));
@@ -87,6 +88,29 @@ footer :focus-visible { outline-color: var(--blush); }
   .doc { grid-template-columns: 1fr; gap: 32px; }
   .toc { position: static; padding: 18px 20px; border-radius: 18px; background: var(--latte); }
 }
+
+/* ===== Nová vizuální identita (stejná jako úvodní stránka) ===== */
+body { background: var(--paper); color: var(--noir); font-size: 15px; line-height: 1.65; }
+.logo svg { fill: var(--taupe); }
+.eyebrow, .toc b { font: 500 11px/1.2 var(--body); letter-spacing: .2em; color: var(--muted); }
+.accent, .intro h1 .accent, .cta h2 span, h1 span { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--wine); background: none; padding: 0; letter-spacing: -0.01em; }
+.cta h2 span { color: var(--stone); }
+.intro { background: var(--mist); }
+.back, .pill { border-radius: 0; background: var(--wine); color: var(--paper); font: 500 11px/1 var(--body); letter-spacing: .2em; text-transform: uppercase; padding: 0 30px; }
+.back { background: var(--noir); padding: 0 20px; }
+.back span, .pill span { color: var(--paper); }
+.pill:hover { background: var(--wine-d); }
+.back:hover { background: var(--muted); }
+.grid li, .faq details, .card { background: var(--white); border: 1px solid var(--stone); border-radius: 4px; }
+.works img, .works video { background: var(--mist); }
+.faq summary::after, h2::before { color: var(--wine); }
+.cta { background: var(--noir); }
+.cta p { color: var(--stone); }
+.cta .pill { background: var(--wine); color: var(--paper); }
+.cta .pill:hover { background: var(--wine-d); }
+.toc a:hover { color: var(--wine); }
+footer { background: var(--noir); color: var(--stone); }
+footer a:hover { color: var(--paper); }
 </style>
 </head>
 <body>
