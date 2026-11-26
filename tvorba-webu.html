@@ -127,7 +127,11 @@ h3 { font-size: 1.3rem; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1
 
 /* Ukázky */
 .works { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 24px; align-items: start; }
-.works.wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); }
+.works.wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+.works a.shot { display: block; overflow: hidden; border-radius: 6px; }
+.works a.shot img { transition: transform .4s ease; }
+.works a.shot:hover img { transform: scale(1.03); }
+.works figcaption b a:hover { color: var(--wine); }
 .works figure { margin: 0; padding: 8px 8px 0; background: var(--white); border-radius: 10px; box-shadow: 0 26px 50px -30px color-mix(in srgb, var(--noir) 55%, transparent); }
 .works img, .works video { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--mist); }
 .works.reels { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
@@ -248,8 +252,9 @@ footer :focus-visible { outline-color: var(--paper); }
   <section class="wrap block" aria-labelledby="ukazky-h">
     <h2 id="ukazky-h">Ukázky <span class="accent">naší práce</span></h2>
     <div class="works wide">
-        <figure><picture><source type="image/webp" srcset="/img/postera-640.webp 640w, /img/postera-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 600px"><img src="/img/postera-1280.jpg" srcset="/img/postera-640.jpg 640w, /img/postera-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 600px" alt="Úvodní stránka webu getpostera.cz" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b>getpostera.cz</b><span>Web pro aplikaci na správu sociálních sítí</span></figcaption></figure>
-        <figure><picture><source type="image/webp" srcset="/img/ebistro-640.webp 640w, /img/ebistro-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 600px"><img src="/img/ebistro-1280.jpg" srcset="/img/ebistro-640.jpg 640w, /img/ebistro-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 600px" alt="Úvodní stránka webu eBISTRO Místek" width="1280" height="800" loading="lazy" decoding="async"></picture><figcaption><b>eBISTRO Místek</b><span>Web bistra s týdenním menu a objednávkou online</span></figcaption></figure>
+        <figure><a class="shot" href="https://getpostera.cz" target="_blank" rel="noopener" aria-label="getpostera.cz, otevře se v novém okně"><picture><source type="image/webp" srcset="/img/postera-640.webp 640w, /img/postera-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 400px"><img src="/img/postera-1280.jpg" srcset="/img/postera-640.jpg 640w, /img/postera-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 400px" alt="Úvodní stránka webu getpostera.cz" width="1280" height="800" loading="lazy" decoding="async"></picture></a><figcaption><b><a href="https://getpostera.cz" target="_blank" rel="noopener">getpostera.cz <span aria-hidden="true">↗</span></a></b><span>Web pro aplikaci na správu sociálních sítí</span></figcaption></figure>
+        <figure><a class="shot" href="https://www.e-bistro.cz" target="_blank" rel="noopener" aria-label="e-bistro.cz, otevře se v novém okně"><picture><source type="image/webp" srcset="/img/ebistro-640.webp 640w, /img/ebistro-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 400px"><img src="/img/ebistro-1280.jpg" srcset="/img/ebistro-640.jpg 640w, /img/ebistro-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 400px" alt="Úvodní stránka webu eBISTRO Místek" width="1280" height="800" loading="lazy" decoding="async"></picture></a><figcaption><b><a href="https://www.e-bistro.cz" target="_blank" rel="noopener">e-bistro.cz <span aria-hidden="true">↗</span></a></b><span>Web bistra s týdenním menu a objednávkou online</span></figcaption></figure>
+        <figure><a class="shot" href="https://adamstarovic.cz" target="_blank" rel="noopener" aria-label="adamstarovic.cz, otevře se v novém okně"><picture><source type="image/webp" srcset="/img/starovic-640.webp 640w, /img/starovic-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 400px"><img src="/img/starovic-1280.jpg" srcset="/img/starovic-640.jpg 640w, /img/starovic-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 400px" alt="Úvodní stránka webu realitního makléře Adama Staroviče" width="1280" height="800" loading="lazy" decoding="async"></picture></a><figcaption><b><a href="https://adamstarovic.cz" target="_blank" rel="noopener">adamstarovic.cz <span aria-hidden="true">↗</span></a></b><span>Web realitního makléře RE/MAX Komfort v Olomouci</span></figcaption></figure>
     </div>
   </section>
 
