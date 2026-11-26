@@ -48,18 +48,18 @@
   }
 
   var css = '' +
-    '.cc { position: fixed; z-index: 20; left: 50%; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: min(560px, calc(100% - 20px)); transform: translateX(-50%); display: grid; gap: 14px; padding: 22px 22px 20px; border-radius: 28px; background: var(--ink, #1A1513); color: var(--cream, #FFF7EC); font: 400 0.92rem/1.55 var(--body, Inter, system-ui, sans-serif); box-shadow: 0 30px 60px -24px rgba(7, 13, 13, 0.6); animation: cc-in .35s ease both; }' +
+    '.cc { position: fixed; z-index: 20; left: 50%; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: min(560px, calc(100% - 20px)); transform: translateX(-50%); display: grid; gap: 14px; padding: 22px 22px 20px; border-radius: 4px; background: #161212; color: #F3F1ED; font: 400 0.9rem/1.55 Inter, system-ui, sans-serif; box-shadow: 0 30px 60px -24px rgba(7, 13, 13, 0.6); animation: cc-in .35s ease both; }' +
     '.cc[hidden] { display: none; }' +
-    '.cc h2 { margin: 0; font: 700 1.15rem/1.2 var(--display, Poppins, system-ui, sans-serif); letter-spacing: -0.02em; }' +
-    '.cc h2 span { color: var(--blush, #F5CBD7); }' +
-    '.cc p { margin: 0; color: var(--cream-dim, #D8CCC2); }' +
-    '.cc a { color: var(--cream, #FFF7EC); }' +
+    '.cc h2 { margin: 0; font: 700 1.15rem/1.2 Poppins, system-ui, sans-serif; letter-spacing: -0.02em; }' +
+    '.cc h2 span { font: italic 500 1.15em/1 "Cormorant Garamond", Georgia, serif; color: #C6BEB5; letter-spacing: 0; }' +
+    '.cc p { margin: 0; color: #C6BEB5; }' +
+    '.cc a { color: #F3F1ED; }' +
     '.cc-row { display: flex; flex-wrap: wrap; gap: 8px; }' +
-    '.cc button { flex: 1 1 160px; min-height: 46px; padding: 0 1.2em; border: 0; border-radius: 999px; cursor: pointer; font: 600 0.95rem/1 var(--display, Poppins, system-ui, sans-serif); }' +
-    '.cc .cc-yes { background: var(--blush, #F5CBD7); color: var(--ink, #1A1513); }' +
-    '.cc .cc-no { background: transparent; color: var(--cream, #FFF7EC); box-shadow: inset 0 0 0 1.5px var(--cream-line, rgba(255, 247, 236, 0.3)); }' +
-    '.cc .cc-no:hover { box-shadow: inset 0 0 0 1.5px var(--cream, #FFF7EC); }' +
-    '.cc :focus-visible { outline: 3px solid var(--blush, #F5CBD7); outline-offset: 3px; }' +
+    '.cc button { flex: 1 1 160px; min-height: 46px; padding: 0 1.2em; border: 0; border-radius: 0; cursor: pointer; font: 500 11px/1.2 Inter, system-ui, sans-serif; letter-spacing: .2em; text-transform: uppercase; }' +
+    '.cc .cc-yes { background: #6E2B2B; color: #F3F1ED; } .cc .cc-yes:hover { background: #561F1F; }' +
+    '.cc .cc-no { background: transparent; color: #F3F1ED; box-shadow: inset 0 0 0 1px rgba(243, 241, 237, 0.35); }' +
+    '.cc .cc-no:hover { box-shadow: inset 0 0 0 1px #F3F1ED; }' +
+    '.cc :focus-visible { outline: 2px solid #F3F1ED; outline-offset: 3px; }' +
     '@keyframes cc-in { from { opacity: 0; transform: translate(-50%, 16px); } }' +
     '@media (min-width: 760px) { .cc { left: 20px; transform: none; width: 440px; } @keyframes cc-in { from { opacity: 0; transform: translateY(16px); } } }' +
     '@media (prefers-reduced-motion: reduce) { .cc { animation: none; } }';

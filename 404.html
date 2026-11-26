@@ -5,24 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stránka nenalezena | Solv Media</title>
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#F3F1ED">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="/cookies.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500&family=Poppins:wght@700&display=swap">
 <style>
 html, body { margin: 0; height: 100%; }
-body { display: grid; place-items: center; padding: 24px; box-sizing: border-box; background: #FFF7EC; color: #1A1513; font: 400 17px/1.6 Inter, system-ui, sans-serif; text-align: center; }
-h1 { font: 700 clamp(2.4rem, 8vw, 4.4rem)/1.1 Poppins, system-ui, sans-serif; letter-spacing: -0.035em; margin: 0 0 16px; }
-h1 span { background: linear-gradient(transparent 60%, #F5CBD7 60%, #F5CBD7 92%, transparent 92%); }
-p { margin: 0 0 28px; color: #5c4f4b; }
-main a { display: inline-block; padding: 1em 1.6em; border-radius: 999px; background: #1A1513; color: #FFF7EC; font: 600 1rem/1 Poppins, system-ui, sans-serif; text-decoration: none; }
-main a:focus-visible { outline: 3px solid #442F2A; outline-offset: 3px; }
+body { display: grid; place-items: center; padding: 24px; box-sizing: border-box; background: #F3F1ED; color: #161212; font: 400 15px/1.65 Inter, system-ui, sans-serif; text-align: center; -webkit-font-smoothing: antialiased; }
+.logo { display: inline-flex; align-items: baseline; margin-bottom: 40px; font: 700 2.2rem/1 Poppins, system-ui, sans-serif; letter-spacing: -0.035em; color: #161212; text-decoration: none; }
+.logo svg { width: 0.69em; height: 0.6em; margin-left: 0.04em; fill: #9C8D7C; }
+.code { display: block; margin-bottom: 8px; font: italic 500 clamp(4rem, 14vw, 8rem)/1 'Cormorant Garamond', Georgia, serif; color: #6E2B2B; }
+h1 { font: 700 clamp(2.2rem, 7vw, 4rem)/1.08 Poppins, system-ui, sans-serif; letter-spacing: -0.04em; margin: 0 0 16px; text-wrap: balance; }
+h1 span { font: italic 500 1.05em/1 'Cormorant Garamond', Georgia, serif; color: #6E2B2B; letter-spacing: -0.01em; }
+p { margin: 0 0 32px; color: #5D5348; font-size: 1.05rem; }
+main a.btn { display: inline-flex; align-items: center; gap: 0.8em; min-height: 46px; padding: 13px 30px; background: #6E2B2B; color: #F3F1ED; font: 500 11px/1.2 Inter, system-ui, sans-serif; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; }
+main a.btn:hover { background: #561F1F; }
+:focus-visible { outline: 2px solid #161212; outline-offset: 3px; }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="tick" viewBox="755 98 365 320"><polygon points="755,280 818,218 880,283 1060,98 1120,158 880,418"/></symbol></svg>
 <main>
+<a class="logo" href="/" aria-label="solv, Solv Media – hlavní stránka">sol<svg aria-hidden="true"><use href="#tick"/></svg></a>
+<span class="code" aria-hidden="true">404</span>
 <h1>Tahle stránka <span>neexistuje</span>.</h1>
 <p>Odkaz je možná starý nebo v něm je překlep.</p>
-<a href="/">Zpět na Solv Media</a>
+<a class="btn" href="/">Zpět na Solv Media <span aria-hidden="true">→</span></a>
 </main>
 </body>
 </html>
